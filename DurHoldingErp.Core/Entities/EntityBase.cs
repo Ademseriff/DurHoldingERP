@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace DurHoldingErp.Core.Entities
 {
+    /// <summary>
+    /// ortak database tanımlamalarının yapıldığı class entity katmanına bağlı.
+    /// </summary>
     public abstract class EntityBase :IEntityBase
     {
         public virtual Guid Id { get; set; } = new Guid();

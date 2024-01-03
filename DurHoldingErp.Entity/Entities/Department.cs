@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace DurHoldingErp.Entity.Entities
 {
+    /// <summary>
+    /// departman tablosu.
+    /// </summary>
     public class Department : EntityBase
     {
         

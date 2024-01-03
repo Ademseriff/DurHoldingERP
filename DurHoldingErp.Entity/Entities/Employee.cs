@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace DurHoldingErp.Entity.Entities
 {
+    /// <summary>
+    /// entity sınıf müşteri 
+    /// </summary>
     public class Employee : EntityBase
     {
      
