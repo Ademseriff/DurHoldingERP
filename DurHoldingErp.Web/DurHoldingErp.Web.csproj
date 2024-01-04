@@ -21,6 +21,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DurHoldingErp.Data\DurHoldingErp.Data.csproj" />
+    <ProjectReference Include="..\DurHoldingErp.Service\DurHoldingErp.Service.csproj" />
   </ItemGroup>
 
 </Project>

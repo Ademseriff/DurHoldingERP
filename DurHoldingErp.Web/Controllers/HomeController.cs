@@ -1,4 +1,6 @@
-﻿using DurHoldingErp.Web.Models;
+﻿using DurHoldingErp.Service.Services.Abstractions;
+using DurHoldingErp.Service.Services.Concretes;
+using DurHoldingErp.Web.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -7,15 +9,18 @@ namespace DurHoldingErp.Web.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IEmployeeService _EmployeeService;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger ,IEmployeeService EmployeeService)
         {
             _logger = logger;
+            _EmployeeService = EmployeeService;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var employee = await _EmployeeService.GetEmployeesAsync();
+            return View(employee);
         }
 
         public IActionResult Privacy()
