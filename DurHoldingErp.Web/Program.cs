@@ -35,11 +35,19 @@ namespace DurHoldingErp.Web
             app.UseRouting();
 
             app.UseAuthorization();
+            //default rotalar oluþturmamýza olanak saðlar.
+            app.UseEndpoints(endpoints => {
 
-            app.MapControllerRoute(
-                name: "default",
-                pattern: "{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapAreaControllerRoute(
+                    name: "Admin",
+                    areaName: "Admin",
+                    pattern: "Admin/{controller=Home}/{action=Index}/{id?}",
+                    
+                );
 
+                endpoints.MapDefaultControllerRoute();
+
+            });
             app.Run();
         }
     }
