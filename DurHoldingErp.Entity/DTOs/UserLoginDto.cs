@@ -8,7 +8,8 @@ namespace DurHoldingErp.Entity.DTOs
 {
     public class UserLoginDto
     {
-        public string Email { get; set; } = "ademserifd@gmail.com";
+        public string Name { get; set; }
+        public string Email { get; set; } 
 
         public string Password { get; set; }
     }

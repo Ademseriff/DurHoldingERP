@@ -56,7 +56,19 @@ namespace DurHoldingErp.Data.Mappings
 
 
             };
-            builder.HasData(user,user2);
+            var user3 = new AppUser
+            {
+                Id = "31313132131290",
+                Email = "ademserif@gmail.com",
+                PhoneNumberConfirmed = true,
+                PhoneNumber = "05392956006",
+                PasswordHash = "123456",
+                UserName = "ademserif",
+                EmailConfirmed = true,
+
+
+            };
+            builder.HasData(user,user2,user3);
         }
     }
 }

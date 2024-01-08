@@ -1,21 +1,28 @@
-﻿using DurHoldingErp.Entity.DTOs;
+﻿using DurHoldingErp.Data.UnitOfWorks;
+using DurHoldingErp.Entity.DTOs;
 using DurHoldingErp.Entity.Entities;
+using DurHoldingErp.Service.Services.Abstractions;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
+using System.Security.Claims;
 
 namespace DurHoldingErp.Web.Areas.Admin.Controllers
 {
     [Area("Admin")]
     public class AuthController : Controller
     {
-        private readonly SignInManager<AppUser> signInManager;
-        private readonly UserManager<AppUser> userManagerr;
-        public AuthController(UserManager<AppUser> userManager,SignInManager<AppUser> signInManager)
+        
+        private readonly IEmployeeService employeeService;
+      
+        public AuthController( IEmployeeService EmployeeService)
         {
-            this.signInManager = signInManager;
-            this.userManagerr = userManager;
+            
+            employeeService = EmployeeService;
+           
         }
         [HttpGet]
         public IActionResult Login()
@@ -29,20 +36,35 @@ namespace DurHoldingErp.Web.Areas.Admin.Controllers
         {
             if(ModelState.IsValid)
             {
-                var user = await userManagerr.FindByEmailAsync(userLoginDto.Email); 
-
+                var user = await employeeService.GetEmployeeAsync(userLoginDto.Name);
+                
                 if (user != null)
                 {
-                    var result = await signInManager.PasswordSignInAsync(user,userLoginDto.Password,false,false);
-                    if (result.Succeeded)
-                    {
-                        RedirectToAction("Index","Home",new {Area = "Admin"});
-                    }
-                    else
-                    {
-                        ModelState.AddModelError("","Kullanıcı adı veya şifre yanlış..");
-                        return View();
-                    }
+
+                    // Kullanıcı bilgileri
+                         var claims = new List<Claim>
+                          {
+                          new Claim(ClaimTypes.Name,user.Name),
+                     // Daha fazla kullanıcı bilgisi ekleyebilirsiniz.
+                           };
+                    // Kimlik oluşturma
+                    var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+
+                    // Kimlik oluşturup kullanıcıyı giriş yapmış olarak işaretleme
+                    var principal = new ClaimsPrincipal(identity);
+                    await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
+
+                    RedirectToAction("Index", "Home", new { Area = "Admin" });
+                    //var result = await signInManager.PasswordSignInAsync(user,userLoginDto.Password,false,false);
+                    //if (true/*result.Succeeded*/)
+                    //{
+                    //    RedirectToAction("Index","Home",new {Area = "Admin"});
+                    //}
+                    //else
+                    //{
+                    //    ModelState.AddModelError("","Kullanıcı adı veya şifre yanlış..");
+                    //    return View();
+                    //}
                 }
                 else
                 {
@@ -56,3 +78,56 @@ namespace DurHoldingErp.Web.Areas.Admin.Controllers
         }
     }
 }
+
+//using Microsoft.AspNetCore.Authentication;
+//using Microsoft.AspNetCore.Authentication.Cookies;
+//using Microsoft.AspNetCore.Mvc;
+//using System;
+//using System.Collections.Generic;
+//using System.Security.Claims;
+//using System.Threading.Tasks;
+
+//public class AccountController : Controller
+//{
+//    public IActionResult Login()
+//    {
+//        return View();
+//    }
+
+//    [HttpPost]
+//    public async Task<IActionResult> Login(string username, string password)
+//    {
+//        // Kullanıcı adı ve parola doğrulaması
+//        if (username == "kullanici" && password == "sifre")
+//        {
+//            // Kullanıcı bilgileri
+//            var claims = new List<Claim>
+//            {
+//                new Claim(ClaimTypes.Name, username),
+//                new Claim(ClaimTypes.Role, "User")
+//                // Daha fazla kullanıcı bilgisi ekleyebilirsiniz.
+//            };
+
+//            // Kimlik oluşturma
+//            var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+
+//            // Kimlik oluşturup kullanıcıyı giriş yapmış olarak işaretleme
+//            var principal = new ClaimsPrincipal(identity);
+//            await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
+
+//            return RedirectToAction("Index", "Home");
+//        }
+
+//        // Kullanıcı doğrulama başarısızsa
+//        ModelState.AddModelError(string.Empty, "Geçersiz kullanıcı adı veya parola");
+//        return View();
+//    }
+
+//    public async Task<IActionResult> Logout()
+//    {
+//        // Kullanıcıyı çıkış yapmış olarak işaretleme
+//        await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+//        return RedirectToAction("Index", "Home");
+//    }
+//}
+

@@ -12,8 +12,8 @@ namespace DurHoldingErp.Entity.Entities
     /// </summary>
     public class Employee : EntityBase
     {
-     
-        public string Name { get; set; }
+
+        public string Name { get; set; } = "Adem Şerif";
 
         public string Surname { get; set; }
 

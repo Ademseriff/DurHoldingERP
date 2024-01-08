@@ -23,5 +23,11 @@ namespace DurHoldingErp.Service.Services.Concretes
         {
             return await unitOfWork.GetRepository<Employee>().GetAllAsyn();
         }
+
+        public async Task<Employee> GetEmployeeAsync(string name)
+        {
+            return await unitOfWork.GetRepository<Employee>().GetAsyn(x=>x.Name == name);
+        }
     }
 }
+

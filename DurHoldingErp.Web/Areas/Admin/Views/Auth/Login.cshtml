@@ -127,8 +127,15 @@
           <form asp-controller="Auth"  asp-action="Login"  id="formAuthentication" class="mb-3" method="post">
               <div asp-validation-summary="All"></div>
             <div class="mb-3">
+             <label asp-for="Name" for="email" class="form-label">İsim Gir</label>
+             <input asp-for="Name" id="password" class="form-control" placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" aria-describedby="password" />
+
+             </div>
+
+            <div class="mb-3">
               <label asp-for="Email" for="email" class="form-label">Email Gir</label>
-              <input asp-for="Email" type="text" class="form-control" id="email" name="email-username" placeholder="Lütfen E-mail Adresini gir." autofocus>
+              <input asp-for="Email" type="email" id="password" class="form-control" placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" aria-describedby="password" />
+
             </div>
             <div class="mb-3 form-password-toggle">
               

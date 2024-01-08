@@ -2,6 +2,7 @@ using DurHoldingErp.Data.Context;
 using DurHoldingErp.Data.Extensions;
 using DurHoldingErp.Entity.Entities;
 using DurHoldingErp.Service.Extensions;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Principal;
@@ -18,37 +19,20 @@ namespace DurHoldingErp.Web
             //ioc conteinara ekleme iþlemini yaptýk dependency injection.
             builder.Services.LoadDataLayerExtension(builder.Configuration);
             builder.Services.LoadServiceLayerExtension();
-            //cokkie iþlemleri
-            builder.Services.AddSession();
+            
             // Add services to the container.
             builder.Services.AddControllersWithViews();
             //db contex ayarlarý.
             builder.Services.AddDbContext<AppDbContext>(opt => opt.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-            //cookie ayarlarý
-            builder.Services.AddIdentity<AppUser, IdentityRole>(opt =>
+     
+            
+            builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(opt =>
             {
-                opt.Password.RequireNonAlphanumeric = false;
-                opt.Password.RequireLowercase = false;
-                opt.Password.RequireUppercase = false;
-
-            } ).AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
-
-
-            builder.Services.ConfigureApplicationCookie(opt =>
-            {
+                opt.Cookie.Name = "Erp";
                 opt.LoginPath = new PathString("/Admin/Auth/Login");
                 opt.LogoutPath = new PathString("/Admin/Auth/Logout");
-                opt.Cookie = new CookieBuilder
-                {
-                    Name = "ERP",
-                    HttpOnly = true
-                    
-
-
-                };
                 opt.ExpireTimeSpan = TimeSpan.FromDays(2);
-                opt.SlidingExpiration = true;
-            });
+                });
 
 
             var app = builder.Build();
@@ -67,7 +51,7 @@ namespace DurHoldingErp.Web
             app.UseRouting();
 
 
-            app.UseSession();
+           
             app.UseAuthentication();
             app.UseAuthorization();
            
