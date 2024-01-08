@@ -38,7 +38,7 @@ namespace DurHoldingErp.Web.Areas.Admin.Controllers
             {
                 try
                 {
-                    var user = await employeeService.GetEmployeeAsync(userLoginDto.Name);
+                    var user = await employeeService.GetEmployeeAsync(userLoginDto.Email);
 
 
                     if (user != null)
@@ -80,6 +80,14 @@ namespace DurHoldingErp.Web.Areas.Admin.Controllers
             }
            
             return View();
+        }
+        [AllowAnonymous]
+       
+        public async Task<IActionResult> Logout()
+        {
+            // Kullanıcıyı çıkış yapmış olarak işaretleme
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            return RedirectToAction("Index", "Home", new {Area =""});
         }
     }
 }

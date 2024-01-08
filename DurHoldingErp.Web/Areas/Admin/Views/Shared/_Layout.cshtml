@@ -669,9 +669,14 @@
                 <div class="dropdown-divider"></div>
               </li>
               <li>
-                <a class="dropdown-item" href="javascript:void(0);">
+                <a  class="dropdown-item" href="javascript:void(0);">
+              
+                 <form method="get" asp-controller="Auth" asp-action="Logout" asp-area="Admin">
                   <i class="bx bx-power-off me-2"></i>
-                  <span class="align-middle">Log Out</span>
+                  <button class="align-middle" type="submit">Çıkış Yap</button>
+                  @* <span class="align-middle">Log Out</span> *@
+                   </form>
+                   
                 </a>
               </li>
             </ul>
@@ -681,8 +686,8 @@
 
         </ul>
       </div>
-
-      
+@* 
+                    asp-action="Index" asp-controller="Home" asp-area ="" *@
       
   </nav>
   
