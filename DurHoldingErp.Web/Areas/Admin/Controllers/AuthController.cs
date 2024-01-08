@@ -36,41 +36,46 @@ namespace DurHoldingErp.Web.Areas.Admin.Controllers
         {
             if(ModelState.IsValid)
             {
-                var user = await employeeService.GetEmployeeAsync(userLoginDto.Name);
-                
-                if (user != null)
+                try
                 {
+                    var user = await employeeService.GetEmployeeAsync(userLoginDto.Name);
 
-                    // Kullanıcı bilgileri
-                         var claims = new List<Claim>
+
+                    if (user != null)
+                    {
+
+                        // Kullanıcı bilgileri
+                        var claims = new List<Claim>
                           {
                           new Claim(ClaimTypes.Name,user.Name),
-                     // Daha fazla kullanıcı bilgisi ekleyebilirsiniz.
+                       // Daha fazla kullanıcı bilgisi ekleyebilirsiniz.
+                         new Claim(ClaimTypes.Email,user.Email),
+                         new Claim(ClaimTypes.Anonymous,user.Password)
+
                            };
-                    // Kimlik oluşturma
-                    var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+                        // Kimlik oluşturma
+                        var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
 
-                    // Kimlik oluşturup kullanıcıyı giriş yapmış olarak işaretleme
-                    var principal = new ClaimsPrincipal(identity);
-                    await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
+                        // Kimlik oluşturup kullanıcıyı giriş yapmış olarak işaretleme
+                        var principal = new ClaimsPrincipal(identity);
+                        await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
 
-                    RedirectToAction("Index", "Home", new { Area = "Admin" });
-                    //var result = await signInManager.PasswordSignInAsync(user,userLoginDto.Password,false,false);
-                    //if (true/*result.Succeeded*/)
-                    //{
-                    //    RedirectToAction("Index","Home",new {Area = "Admin"});
-                    //}
-                    //else
-                    //{
-                    //    ModelState.AddModelError("","Kullanıcı adı veya şifre yanlış..");
-                    //    return View();
-                    //}
+                        return RedirectToAction("Index", "Home", new { Area = "Admin" });
+                       
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("", "Kullanıcı adı veya şifre yanlış..");
+                        return View();
+                    }
                 }
-                else
+                catch (ArgumentException ex)
                 {
                     ModelState.AddModelError("", "Kullanıcı adı veya şifre yanlış..");
                     return View();
                 }
+
+                
 
             }
            
@@ -78,6 +83,15 @@ namespace DurHoldingErp.Web.Areas.Admin.Controllers
         }
     }
 }
+
+//try
+//{
+//    ExampleMethod(-1);
+//}
+//catch (ArgumentException ex)
+//{
+//    Console.WriteLine($"Hata Yakalandı: {ex.Message}");
+//}
 
 //using Microsoft.AspNetCore.Authentication;
 //using Microsoft.AspNetCore.Authentication.Cookies;

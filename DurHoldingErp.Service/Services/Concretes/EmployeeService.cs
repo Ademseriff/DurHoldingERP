@@ -26,7 +26,15 @@ namespace DurHoldingErp.Service.Services.Concretes
 
         public async Task<Employee> GetEmployeeAsync(string name)
         {
-            return await unitOfWork.GetRepository<Employee>().GetAsyn(x=>x.Name == name);
+            try
+            {
+                return await unitOfWork.GetRepository<Employee>().GetAsyn(x => x.Name == name);
+            }
+            catch
+            {
+                return null;
+            }
+           
         }
     }
 }
