@@ -1,5 +1,5 @@
 ﻿using DurHoldingErp.Entity.Entities;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -15,7 +15,7 @@ namespace DurHoldingErp.Data.Context
     /// <summary>
     /// veritabanı bağlantı classı
     /// </summary>
-    public class AppDbContext : IdentityDbContext<AppUser>
+    public class AppDbContext : DbContext
     {
 
         public AppDbContext()
