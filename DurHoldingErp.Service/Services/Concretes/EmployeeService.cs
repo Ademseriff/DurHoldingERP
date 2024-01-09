@@ -36,6 +36,12 @@ namespace DurHoldingErp.Service.Services.Concretes
             }
            
         }
+
+        public async Task AddUserAsyn(Employee employee)
+        {
+            await unitOfWork.GetRepository<Employee>().AddAsyn(employee);
+        }
+
     }
 }
 

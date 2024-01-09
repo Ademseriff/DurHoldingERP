@@ -1,0 +1,87 @@
+﻿@{
+    ViewData["Title"] = "admin page";
+    List<Employee> myEmployee = ViewBag.Employees;
+}
+@model Employee;
+
+
+<div class="container">
+    <h2 class="mt-4" class="text-center mt-4"> Çalışanlar </h2>
+    <br />
+    <br />
+    <table class="table table-dark">
+        <thead>
+            <tr>
+                <th scope="col">ID </th>
+                <th scope="col">Name</th>
+                <th scope="col">Soyad</th>
+                <th scope="col">EMail</th>
+                <th scope="col">Departman</th>
+                <th scope="col">CreateTime</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var kullanıcı in myEmployee)
+            {
+                <tr>
+                    <td>@kullanıcı.Id <td>
+                    <td>@kullanıcı.Name <td>
+                    <td>@kullanıcı.Surname <td>
+                    <td>@kullanıcı.Email</td>
+                    <td>@kullanıcı.Department</td>
+                    <td>@kullanıcı.CreateTime</td>
+
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>
+
+<h1>personel ekle</h1>
+
+<form asp-action="employee" asp-controller="Home" asp-area="Admin" method="post" target="_self">
+    <div class="form-group" class="m">
+        <label asp-for="Name">Name </label>
+        <input asp-for="Name" class="form-control"  aria-describedby="emailHelp" placeholder="Name">
+
+    </div>
+    <div class="form-group" class="m">
+        <label asp-for="Surname">Surname</label>
+        <input asp-for="Surname" class="form-control"  aria-describedby="emailHelp" placeholder="Name">
+
+    </div>
+    
+    <div class="form-group">
+        <label asp-for="Email">Email address</label>
+        <input asp-for="Email" type="email" class="form-control"  aria-describedby="emailHelp" placeholder="Enter email">
+
+    </div>
+    <div class="form-group">
+        <label asp-for="Age">Age</label>
+        <input asp-for="Age"  class="form-control"  aria-describedby="emailHelp" placeholder="Age">
+
+    </div>
+    <div class="form-group">
+        <label asp-for="Sallary">Sallary</label>
+        <input asp-for="Sallary"  class="form-control"  aria-describedby="emailHelp" placeholder="Lütfen $(dolar) cinsinden giriniz">
+
+    </div>
+    
+
+    <div class="form-group">
+        <label for="exampleFormControlSelect1">Role</label>
+        <select asp-for="DepartmentId" class="form-control" id="exampleFormControlSelect1">
+            <option value="6DCE8FD3-EBCE-4669-80AF-B74B75911ED6">Yönetici</option>
+            <option value="1C30332A-D7CC-4C29-ABF9-B02BC87536EB">It</option>
+            <option value="14B482FC-8374-40EF-9BAD-53F369B30771">Ik</option>
+            <option value="9B930DCD-FD15-43CE-BE93-91C2B314A97F">Security</option>
+            <option value="B2ECB1DD-6C51-4BD6-862D-61DF780DE333">Driver</option>
+            <option value="173BF7C5-9F43-4F2A-AFBD-F2A6E15B4D41">Worker</option>
+            <option value="65DCC325-B971-4979-AD4C-52FE91509D5A">CEO or Deputy ceo</option>
+        </select>
+        <br />
+        <br />
+        <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</div>

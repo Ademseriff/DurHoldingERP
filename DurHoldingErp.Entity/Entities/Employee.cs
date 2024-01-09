@@ -23,6 +23,8 @@ namespace DurHoldingErp.Entity.Entities
         public string? Email { get; set; }
         public int Age { get; set; }
 
+        public string? Sallary { get; set; }
+
         public Guid DepartmentId { get; set; }
 
         public Department Department { get; set; }
