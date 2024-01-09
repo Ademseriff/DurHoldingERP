@@ -11,7 +11,13 @@ namespace DurHoldingErp.Core.Entities
     /// </summary>
     public abstract class EntityBase :IEntityBase
     {
-        public virtual Guid Id { get; set; } = new Guid();
+        public EntityBase()
+        {
+            Id = new Guid();
+            Id = Guid.NewGuid();
+        }
+
+        public virtual Guid Id { get; set; } 
 
         public virtual DateTime CreateTime { get; set; } = DateTime.Now;
 

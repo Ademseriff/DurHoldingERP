@@ -31,6 +31,8 @@ namespace DurHoldingErp.Data.Context
 
         public DbSet<Department> departments { get; set; }
 
+        public DbSet<Users> users { get; set; }
+
         //assembly dediğmiz şey bizim şu an içinde bulunduğumuz katmanı ifade eder ve bu kullanmış olduğumuz fonksiyon .GetExecutingAssembly() mapping işlemlerini bu katmandaki bütün sınıflar için uygular
         protected override void OnModelCreating(ModelBuilder builder)
         {

@@ -31,7 +31,7 @@ namespace DurHoldingErp.Web
                 opt.Cookie.Name = "Erp";
                 opt.LoginPath = new PathString("/Admin/Auth/Login");
                 opt.LogoutPath = new PathString("/Admin/Auth/Logout");
-                opt.ExpireTimeSpan = TimeSpan.FromMinutes(3);
+                opt.ExpireTimeSpan = TimeSpan.FromHours(24);
                 });
 
 

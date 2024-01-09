@@ -17,12 +17,13 @@ namespace DurHoldingErp.Web.Areas.Admin.Controllers
     {
         
         private readonly IEmployeeService employeeService;
-      
-        public AuthController( IEmployeeService EmployeeService)
+        private readonly IUsersService usersService;
+
+        public AuthController( IEmployeeService EmployeeService,IUsersService UsersService)
         {
             
             employeeService = EmployeeService;
-           
+            usersService = UsersService;
         }
         [HttpGet]
         public IActionResult Login()
@@ -38,9 +39,7 @@ namespace DurHoldingErp.Web.Areas.Admin.Controllers
             {
                 try
                 {
-                    var user = await employeeService.GetEmployeeAsync(userLoginDto.Email);
-
-
+                    var user = await usersService.GetUserAsync(userLoginDto.Name);
                     if (user != null)
                     {
 

@@ -11,6 +11,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
+
     <title>Süper Admin Panel</title>
 
     
@@ -138,13 +139,13 @@
     <li class="menu-item active open">
       <a href="javascript:void(0);" class="menu-link menu-toggle">
         <i class="menu-icon tf-icons bx bx-home-circle"></i>
-        <div data-i18n="Dashboards">Dashboards</div>
+        <div data-i18n="Dashboards">Home Page</div>
         <div class="badge bg-danger rounded-pill ms-auto">5</div>
       </a>
       <ul class="menu-sub">
         <li class="menu-item">
-          <a href="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/html/vertical-menu-template/dashboards-crm.html" target="_blank" class="menu-link">
-            <div data-i18n="CRM">CRM</div><div class="badge bg-label-primary fs-tiny rounded-pill ms-auto">Pro</div>
+          <a asp-action="Index" asp-controller="Home" asp-area ="Admin" target="_self" class="menu-link">
+            <div data-i18n="CRM">Home Page</div><div class="badge bg-label-primary fs-tiny rounded-pill ms-auto">Ana Sayfa</div>
           </a>
         </li>
         <li class="menu-item active">
@@ -157,16 +158,7 @@
             <div data-i18n="eCommerce">eCommerce</div><div class="badge bg-label-primary fs-tiny rounded-pill ms-auto">Pro</div>
           </a>
         </li>
-        <li class="menu-item">
-          <a href="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/html/vertical-menu-template/app-logistics-dashboard.html" target="_blank" class="menu-link">
-            <div data-i18n="Logistics">Logistics</div><div class="badge bg-label-primary fs-tiny rounded-pill ms-auto">Pro</div>
-          </a>
-        </li>
-        <li class="menu-item">
-          <a href="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/html/vertical-menu-template/app-academy-dashboard.html" target="_blank" class="menu-link">
-            <div data-i18n="Academy">Academy</div><div class="badge bg-label-primary fs-tiny rounded-pill ms-auto">Pro</div>
-          </a>
-        </li>
+       
       </ul>
     </li>
 

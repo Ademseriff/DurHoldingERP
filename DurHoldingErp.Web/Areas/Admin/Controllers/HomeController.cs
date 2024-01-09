@@ -1,4 +1,5 @@
-﻿using DurHoldingErp.Service.Services.Abstractions;
+﻿using DurHoldingErp.Entity.Entities;
+using DurHoldingErp.Service.Services.Abstractions;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,17 +9,24 @@ namespace DurHoldingErp.Web.Areas.Admin.Controllers
     [Authorize]
     public class HomeController : Controller
     {
-        private readonly IEmployeeService employeeService;
+        private readonly IUsersService usersService;
 
-        public HomeController(IEmployeeService EmployeeService)
+        public HomeController(IUsersService UsersService)
         {
-            employeeService = EmployeeService;
+            usersService = UsersService;
         }
         
         public async Task<IActionResult> Index()
         {
-            var employee = await employeeService.GetEmployeesAsync(); 
-            return View(employee);
+            var users = await usersService.GetUsersAsync();
+            ViewBag.Users = users;
+            return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> AdminAdd(Users user)
+        {
+           await usersService.AddUserAsyn(user);
+           return RedirectToAction("Index", "Home", new { Area = "Admin" });
         }
     }
 }
