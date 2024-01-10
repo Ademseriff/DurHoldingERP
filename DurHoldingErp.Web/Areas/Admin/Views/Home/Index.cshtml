@@ -4,25 +4,55 @@
     List<Users> myUsers = ViewBag.Users;
 }
 
-@* <div >
-    @foreach (var employee in Model)
-    {
-        <h2>@employee.Name</h2> <br />
-        <h2>@employee.Age</h2>
-        
-        @employee.Surname
-        @employee.Email
-        @employee.CreateTime
-
-        <br />
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
     }
 
-</div> *@
+    button {
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        background-color: #007BFF;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+    }
 
-<div class="container">
-    <h2 class="mt-4" class="text-center mt-4" >Adminler</h2>
-<br />
-<br />
+    .custom-margin {
+        text-align: center
+    }
+
+    button:hover {
+        background-color: #0056b3;
+    }
+
+    .alert-container {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 20px;
+        background-color: #f8d7da;
+        border: 1px solid #f5c6cb;
+        border-radius: 5px;
+        color: #721c24;
+    }
+
+        .alert-container.show {
+            display: block;
+        }
+</style>
+
+<div class="container mt-4">
+
+ <h2 class="container custom-margin">Adminler</h2>
 <table class="table table-dark">
     <thead>
         <tr>
@@ -50,14 +80,10 @@
        
     </tbody>
 </table>
+
 </div>
-
-
-<div class="container">
-<div class="m-10">
-    <h3>Admin Ekle</h3>
-</div>
-
+<div class="container mt-4">
+<h3 class="container custom-margin">Admin EKLE</h3>
 <form asp-action="AdminAdd" asp-controller="Home" asp-area="Admin" method="post" target="_self">
     <div class="form-group" class="m">
         <label asp-for="Name">Name</label>
@@ -82,7 +108,24 @@
         </select>
         <br />
         <br />
-    <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary" onclick="showAlert()">Submit</button>
 </form>
 </div>
 
+<div id="alert" class="alert-container">
+    <p>Admin Eklendi</p>
+    <button onclick="hideAlert()">Tamam</button>
+</div>
+
+
+<script>
+    function showAlert() {
+        var alertContainer = document.getElementById('alert');
+        alertContainer.classList.add('show');
+    }
+
+    function hideAlert() {
+        var alertContainer = document.getElementById('alert');
+        alertContainer.classList.remove('show');
+    }
+</script>

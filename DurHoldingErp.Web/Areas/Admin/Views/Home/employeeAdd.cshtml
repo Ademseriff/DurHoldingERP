@@ -1,0 +1,117 @@
+﻿@model Employee;
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    button {
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        background-color: #007BFF;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+    }
+
+    .custom-margin {
+       
+       text-align :center
+      
+    }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+    .alert-container {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 20px;
+        background-color: #f8d7da;
+        border: 1px solid #f5c6cb;
+        border-radius: 5px;
+        color: #721c24;
+    }
+
+        .alert-container.show {
+            display: block;
+        }
+</style>
+
+<div class="container mt-4">
+    <h1 class="container custom-margin">PERSONEL EKLE</h1>
+
+
+ <form asp-action="employeeAdd" asp-controller="Home" asp-area="Admin" method="post" target="_self">
+        <div class="form-group" class="m" class="container mt-4">
+        <label asp-for="Name">Name </label>
+        <input asp-for="Name" class="form-control" aria-describedby="emailHelp" placeholder="Name">
+
+    </div>
+        <div class="form-group" class="m" class="container mt-4">
+        <label asp-for="Surname">Surname</label>
+        <input asp-for="Surname" class="form-control" aria-describedby="emailHelp" placeholder="Name">
+
+    </div>
+
+        <div class="form-group" class="container mt-4">
+        <label asp-for="Email">Email address</label>
+        <input asp-for="Email" type="email" class="form-control" aria-describedby="emailHelp" placeholder="Enter email">
+
+    </div>
+        <div class="form-group" class="container mt-4">
+        <label asp-for="Age">Age</label>
+        <input asp-for="Age" class="form-control" aria-describedby="emailHelp" placeholder="Age">
+
+    </div>
+        <div class="form-group" class="container mt-4">
+        <label asp-for="Sallary">Sallary</label>
+        <input asp-for="Sallary" class="form-control" aria-describedby="emailHelp" placeholder="Lütfen $(dolar) cinsinden giriniz">
+
+    </div>
+
+
+        <div class="form-group" class="container mt-4">
+        <label for="exampleFormControlSelect1">Role</label>
+        <select asp-for="DepartmentId" class="form-control" id="exampleFormControlSelect1">
+            <option value="6DCE8FD3-EBCE-4669-80AF-B74B75911ED6">Yönetici</option>
+            <option value="1C30332A-D7CC-4C29-ABF9-B02BC87536EB">It</option>
+            <option value="14B482FC-8374-40EF-9BAD-53F369B30771">Ik</option>
+            <option value="9B930DCD-FD15-43CE-BE93-91C2B314A97F">Security</option>
+            <option value="B2ECB1DD-6C51-4BD6-862D-61DF780DE333">Driver</option>
+            <option value="173BF7C5-9F43-4F2A-AFBD-F2A6E15B4D41">Worker</option>
+            <option value="65DCC325-B971-4979-AD4C-52FE91509D5A">CEO or Deputy ceo</option>
+        </select>
+        <br />
+       
+            <button type="submit" class="btn btn-primary" onclick="showAlert()" class="container mt-4" class="container custom-margin">Personel Ekle</button>
+</form>
+</div>
+  </div>
+<div id="alert" class="alert-container">
+    <p>Personel Eklendi</p>
+    <button onclick="hideAlert()">Tamam</button>
+</div>
+
+
+<script>
+    function showAlert() {
+        var alertContainer = document.getElementById('alert');
+        alertContainer.classList.add('show');
+    }
+
+    function hideAlert() {
+        var alertContainer = document.getElementById('alert');
+        alertContainer.classList.remove('show');
+    }
+</script>

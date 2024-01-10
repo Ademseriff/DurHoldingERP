@@ -39,16 +39,24 @@ namespace DurHoldingErp.Web.Areas.Admin.Controllers
             return View();
         }
 
+        [HttpGet]
+        public async Task<IActionResult> employeeAdd()
+        {
+           
+            return View();
+        }
+
+
         //buraya bak.
         [HttpPost]
-        public async Task<IActionResult> employee(Employee employee)
+        public async Task<IActionResult> employeeAdd(Employee employee)
         {
-            string x = employee.DepartmentId.ToString();
-            employee.DepartmentId=Guid.Parse(x);
-            var a = employee;
+            string departmanid = employee.DepartmentId.ToString();
+            employee.DepartmentId=Guid.Parse(departmanid);
+            
             
             await employeeService.AddUserAsyn(employee);
-            return RedirectToAction("Index", "Home", new { Area = "Admin" });
+            return RedirectToAction("employeeAdd", "Home", new { Area = "Admin" });
         }
 
 
