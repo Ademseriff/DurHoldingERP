@@ -8,19 +8,17 @@ namespace DurHoldingErp.Web.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-        private readonly IEmployeeService _EmployeeService;
+        
 
-        public HomeController(ILogger<HomeController> logger ,IEmployeeService EmployeeService)
+        public HomeController()
         {
-            _logger = logger;
-            _EmployeeService = EmployeeService;
+            
         }
 
         public async Task<IActionResult> Index()
         {
-            var employee = await _EmployeeService.GetEmployeesAsync();
-            return View(employee);
+           
+            return View();
         }
 
         public IActionResult Privacy()
