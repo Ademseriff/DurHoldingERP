@@ -26,6 +26,7 @@ namespace DurHoldingErp.Service.Extensions
 
             services.AddScoped<IEmployeeService, EmployeeService>();
             services.AddScoped<IUsersService, UsersService>();
+            services.AddScoped<IClosetService, ClosetService>();
             return services;
         }
     }
