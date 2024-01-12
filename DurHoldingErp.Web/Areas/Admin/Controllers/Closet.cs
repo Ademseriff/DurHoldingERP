@@ -28,12 +28,27 @@ namespace DurHoldingErp.Web.Areas.Admin.Controllers
             return View();
 
         }
-        [HttpPost]
-        public async Task<IActionResult> ClosetAdd(Closet closet)
-        {
-            
-            return View();
+        //[HttpPost]
+        //public  IActionResult ClosetAdd(Closet closet)
+        //{
 
+       
+
+        //}
+        [HttpPost]
+        public IActionResult ClosetAdd(Closet closet)
+        {
+            if (ModelState.IsValid)
+            {
+                // Closet nesnesi başarıyla alındı. İstenen işlemleri gerçekleştirebilirsiniz.
+                // Örneğin, veritabanına ekleme işlemi yapabilirsiniz.
+
+                // Başarılı bir işlem sonrasında bir sayfaya yönlendirme yapabilirsiniz.
+                return RedirectToAction("SuccessAction");
+            }
+
+            // ModelState.IsValid false ise, model bağlama sırasında bir hata olmuştur. Bu durumu inceleyebilirsiniz.
+            return View();
         }
 
 

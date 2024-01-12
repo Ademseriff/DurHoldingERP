@@ -9,12 +9,13 @@ namespace DurHoldingErp.Entity.Entities
 {
     public class Closet :EntityBase
     {
-        public Closet() {
+        public Closet()
+        {
             Random rnd = new Random();
             BarcodeId = rnd.Next(1000, 9999);
 
         }
-        public int BarcodeId { get; set; }
+        public int BarcodeId { get; set; } 
         public string ClosetName { get; set; }
 
         public string ClosetPrice { get; set; }

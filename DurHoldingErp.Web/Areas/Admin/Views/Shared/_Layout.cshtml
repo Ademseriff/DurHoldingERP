@@ -62,7 +62,7 @@
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="~/sneat-1.0.0/assets/js/config.js"></script>
-    
+   @*  @RenderSection("Scripts", required: false) *@
 </head>
 
 <body>
@@ -203,17 +203,17 @@
       </a>
       <ul class="menu-sub">
         <li class="menu-item">
-          <a href="auth-login-basic.html" class="menu-link" target="_blank">
+          <a asp-area="Admin" asp-action="Index" asp-controller="KitchenCeramic" class="menu-link" target="_self">
             <div data-i18n="Basic">Kitcen Ceramic Table View</div>
           </a>
         </li>
         <li class="menu-item">
-          <a href="auth-register-basic.html" class="menu-link" target="_blank">
+           <a asp-area="Admin" asp-action="KitchenCeramicAdd" asp-controller="KitchenCeramic" class="menu-link" target="_self">
             <div data-i18n="Basic">Kitchen Ceramic Model Add</div>
           </a>
         </li>
         <li class="menu-item">
-          <a href="auth-forgot-password-basic.html" class="menu-link" target="_blank">
+       <a href="auth-forgot-password-basic.html" class="menu-link" target="_self">
             <div data-i18n="Basic">Kitchen Ceramic Amount Add</div>
           </a>
         </li>

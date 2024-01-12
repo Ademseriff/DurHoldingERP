@@ -7,12 +7,10 @@ using System.Threading.Tasks;
 
 namespace DurHoldingErp.Service.Services.Abstractions
 {
-    public interface IClosetService
+    public interface IKitchenCeramicService
     {
-        Task<List<Closet>> GetClosetsAsync();
-        Task AddClosetAsyn(Closet closet);
-       
+        Task<List<KitchenCeramic>> GetKitchenCeramicAsync();
 
-
+        Task AddUserAsyn(KitchenCeramic kitchenCeramic);
     }
 }

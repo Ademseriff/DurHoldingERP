@@ -1,0 +1,52 @@
+﻿@{
+    List<KitchenCeramic> KitchenCeramic = ViewBag.kitchenCeramics;
+}
+
+<style>
+    .custom-margin {
+        text-align: center
+    }
+</style>
+
+<div class="container mt-4">
+    <h2 class="container custom-margin"> Mutfak Seramikleri </h2>
+    <br />
+    <br />
+    <table class="table table-dark">
+        <thead>
+            <tr>
+
+                <th scope="col">BarcodeID</th>
+           
+                <th></th>
+                <th scope="col">Name</th>
+
+
+                <th scope="col">Price</th>
+
+               
+                <th scope="col">Amount</th>
+               
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var kullanıcı in KitchenCeramic)
+            {
+                <tr>
+
+                    <td>@kullanıcı.BarcodeId
+                    <td>
+                    <td>@kullanıcı.CeramicName
+                    <td>
+                    <td>@kullanıcı.CeramicPrice</td>
+
+                    <td>@kullanıcı.CeramicAmount</td>
+                   
+
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>
+

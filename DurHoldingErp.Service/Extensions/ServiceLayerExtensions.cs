@@ -1,6 +1,7 @@
 ﻿using DurHoldingErp.Data.Repositories.Abstractions;
 using DurHoldingErp.Data.Repositories.Concretes;
 using DurHoldingErp.Data.UnitOfWorks;
+using DurHoldingErp.Entity.Entities;
 using DurHoldingErp.Service.Services.Abstractions;
 using DurHoldingErp.Service.Services.Concretes;
 using Microsoft.Extensions.Configuration;
@@ -27,6 +28,7 @@ namespace DurHoldingErp.Service.Extensions
             services.AddScoped<IEmployeeService, EmployeeService>();
             services.AddScoped<IUsersService, UsersService>();
             services.AddScoped<IClosetService, ClosetService>();
+            services.AddScoped<IKitchenCeramicService,KitchenCeramicService>();
             return services;
         }
     }
