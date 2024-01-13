@@ -11,6 +11,6 @@ namespace DurHoldingErp.Service.Services.Abstractions
     {
         Task<List<KitchenCeramic>> GetKitchenCeramicAsync();
 
-        Task AddUserAsyn(KitchenCeramic kitchenCeramic);
+        Task AddKitchenCeramicAsyn(KitchenCeramic kitchenCeramic);
     }
 }

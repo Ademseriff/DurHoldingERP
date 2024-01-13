@@ -29,6 +29,7 @@ namespace DurHoldingErp.Service.Extensions
             services.AddScoped<IUsersService, UsersService>();
             services.AddScoped<IClosetService, ClosetService>();
             services.AddScoped<IKitchenCeramicService,KitchenCeramicService>();
+            services.AddScoped<IBathCeramicService, BathCeramicService>();
             return services;
         }
     }

@@ -23,7 +23,7 @@ namespace DurHoldingErp.Service.Services.Concretes
             return await unitOfWork.GetRepository<KitchenCeramic>().GetAllAsyn();
         }
 
-        public async Task AddUserAsyn(KitchenCeramic kitchenCeramic)
+        public async Task AddKitchenCeramicAsyn(KitchenCeramic kitchenCeramic)
         {
             await unitOfWork.GetRepository<KitchenCeramic>().AddAsyn(kitchenCeramic);
         }

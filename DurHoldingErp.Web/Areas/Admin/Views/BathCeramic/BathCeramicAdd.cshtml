@@ -1,5 +1,4 @@
-﻿@model KitchenCeramic;
-
+﻿@model BathCeramic;
 
 <style>
     body {
@@ -49,16 +48,16 @@
 
 
 <div class="container mt-4">
-    <h1 class="custom-margin">Kitchen Ceramic Model Add</h1>
+    <h1 class="custom-margin">Bath Ceramic Model Add</h1>
 
-    <form asp-action="CeramicAdd" asp-controller="KitchenCeramic" asp-area="Admin" method="post" target="_self">
+    <form asp-action="BathCeramicAdd" asp-controller="BathCeramic" asp-area="Admin" method="post" target="_self">
         <div class="form-group container mt-4">
             <label asp-for="CeramicName">Closet Model Name </label>
-            <input asp-for="CeramicName" class="form-control" placeholder="Kitchen Ceramic Model Name">
+            <input asp-for="CeramicName" class="form-control" placeholder="Bath Ceramic Model Name">
         </div>
         <div class="form-group container mt-4">
             <label asp-for="CeramicPrice">Closet Model Price => please $</label>
-            <input asp-for="CeramicPrice" class="form-control" placeholder="Kitchen Ceramic Model Price">
+            <input asp-for="CeramicPrice" class="form-control" placeholder="Bath Ceramic Model Price">
         </div>
         <div class="form-group container mt-4">
             <label asp-for="CeramicAmount">Closet Amount Right Now</label>
@@ -73,3 +72,5 @@
 
     <!-- Eğer gerekirse showAlert() fonksiyonu için JavaScript kodunuzu buraya ekleyebilirsiniz -->
 </div>
+
+

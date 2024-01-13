@@ -1,15 +1,16 @@
-﻿using DurHoldingErp.Service.Services.Abstractions;
+﻿using DurHoldingErp.Entity.Entities;
+using DurHoldingErp.Service.Services.Abstractions;
 using DurHoldingErp.Service.Services.Concretes;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DurHoldingErp.Web.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    public class Closet : Controller
+    public class ClosetController : Controller
     {
         private readonly IClosetService closetService;
 
-        public Closet(IClosetService closetService)
+        public ClosetController(IClosetService closetService)
         {
             this.closetService = closetService;
         }
@@ -36,19 +37,17 @@ namespace DurHoldingErp.Web.Areas.Admin.Controllers
 
         //}
         [HttpPost]
-        public IActionResult ClosetAdd(Closet closet)
+        public async Task<IActionResult> ClosetAdd(Closet closet)
         {
             if (ModelState.IsValid)
             {
-                // Closet nesnesi başarıyla alındı. İstenen işlemleri gerçekleştirebilirsiniz.
-                // Örneğin, veritabanına ekleme işlemi yapabilirsiniz.
+                await closetService.AddClosetAsyn(closet);
 
-                // Başarılı bir işlem sonrasında bir sayfaya yönlendirme yapabilirsiniz.
-                return RedirectToAction("SuccessAction");
+                return RedirectToAction("ClosetAdd", "Closet", new { Area = "Admin" });
             }
 
-            // ModelState.IsValid false ise, model bağlama sırasında bir hata olmuştur. Bu durumu inceleyebilirsiniz.
-            return View();
+
+            return RedirectToAction("ClosetAdd", "Closet", new { Area = "Admin" });
         }
 
 

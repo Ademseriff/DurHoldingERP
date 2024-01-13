@@ -46,56 +46,31 @@
         }
 </style>
 
-<h3>this page not working</h3>
 
 <div class="container mt-4">
-    <h1 class="custom-margin">Gardırop EKLE</h1>
+    <h1 class="custom-margin">Closet Model Add</h1>
 
     <form asp-action="ClosetAdd" asp-controller="Closet" asp-area="Admin" method="post" target="_self">
         <div class="form-group container mt-4">
-            <label asp-for="ClosetName">Ad </label>
-            <input asp-for="ClosetName" class="form-control" placeholder="Ad">
+            <label asp-for="ClosetName">Closet Model Name </label>
+            <input asp-for="ClosetName" class="form-control" placeholder="Closet Model Name">
         </div>
         <div class="form-group container mt-4">
-            <label asp-for="ClosetPrice">Soyad</label>
-            <input asp-for="ClosetPrice" class="form-control"  placeholder="Soyad">
+            <label asp-for="ClosetPrice">Closet Model Price => please $</label>
+            <input asp-for="ClosetPrice" class="form-control" placeholder="Closet Model Price">
         </div>
         <div class="form-group container mt-4">
-            <label asp-for="ClosetAmount">E-posta adresi</label>
-            <input asp-for="ClosetAmount" class="form-control"  placeholder="E-posta adresinizi girin">
+            <label asp-for="ClosetAmount">Closet Amount Right Now</label>
+            <input asp-for="ClosetAmount" class="form-control"  placeholder="Lütfen mevcut bulunan adedi giriniz">
         </div>
 
         <div class="form-group container mt-4">
             <br />
-            <button type="submit" class="btn btn-primary container mt-4 custom-margin">Gardırop Ekle</button>
+            <button type="submit" class="btn btn-primary container mt-4 custom-margin">Modeli  Ekle</button>
         </div>
     </form>
 
     <!-- Eğer gerekirse showAlert() fonksiyonu için JavaScript kodunuzu buraya ekleyebilirsiniz -->
 </div>
 
-
-@* @section Scripts {
-    <script>
-        // Form validasyonu için JavaScript kodu
-        (function () {
-            'use strict';
-
-            // Formu seç
-            var form = document.querySelector('.needs-validation');
-
-            // Submit işlemi yapıldığında
-            form.addEventListener('submit', function (event) {
-                // Form validasyonunu kontrol et
-                if (!form.checkValidity()) {
-                    event.preventDefault();
-                    event.stopPropagation();
-                }
-
-                // Validasyonu göster
-                form.classList.add('was-validated');
-            });
-        })();
-    </script>
-} *@
 

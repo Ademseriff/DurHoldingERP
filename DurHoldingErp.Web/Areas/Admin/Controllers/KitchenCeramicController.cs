@@ -1,4 +1,5 @@
-﻿using DurHoldingErp.Service.Services.Abstractions;
+﻿using DurHoldingErp.Entity.Entities;
+using DurHoldingErp.Service.Services.Abstractions;
 using DurHoldingErp.Service.Services.Concretes;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -7,11 +8,11 @@ namespace DurHoldingErp.Web.Areas.Admin.Controllers
 {
     [Area("Admin")]
     [Authorize]
-    public class KitchenCeramic : Controller
+    public class KitchenCeramicController : Controller
     {
         private readonly IKitchenCeramicService kitchenCeramicService;
 
-        public KitchenCeramic(IKitchenCeramicService kitchenCeramicService)
+        public KitchenCeramicController(IKitchenCeramicService kitchenCeramicService)
         {
             this.kitchenCeramicService = kitchenCeramicService;
         }
@@ -28,11 +29,21 @@ namespace DurHoldingErp.Web.Areas.Admin.Controllers
             
             return View();
         }
+       
         [HttpPost]
-        public ActionResult CeramicAdd()
+        public async Task<IActionResult> CeramicAdd(KitchenCeramic kitchenCeramic)
         {
+            if (ModelState.IsValid)
+            {
+                await kitchenCeramicService.AddKitchenCeramicAsyn(kitchenCeramic);
+
+                return RedirectToAction("KitchenCeramicAdd", "KitchenCeramic", new { Area = "Admin" });
+            }
+
 
             return RedirectToAction("KitchenCeramicAdd", "KitchenCeramic", new { Area = "Admin" });
+
+           
         }
 
 
