@@ -1,4 +1,5 @@
 ﻿using DurHoldingErp.Data.UnitOfWorks;
+using DurHoldingErp.Entity.DTOs;
 using DurHoldingErp.Entity.Entities;
 using DurHoldingErp.Service.Services.Abstractions;
 using System;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace DurHoldingErp.Service.Services.Concretes
 {
-    public class KitchenCeramicService:IKitchenCeramicService
+    public class KitchenCeramicService : IKitchenCeramicService
     {
         private readonly IUnitOfWork unitOfWork;
 
@@ -26,6 +27,34 @@ namespace DurHoldingErp.Service.Services.Concretes
         public async Task AddKitchenCeramicAsyn(KitchenCeramic kitchenCeramic)
         {
             await unitOfWork.GetRepository<KitchenCeramic>().AddAsyn(kitchenCeramic);
+        }
+
+
+        public async Task UpdateAmount(UpdateDto updateDto)
+        {
+            try
+            {
+                var kitchenC = await unitOfWork.GetRepository<KitchenCeramic>().GetAsyn(x => x.BarcodeId == updateDto.BarkodId);
+                int addedAmount = int.Parse(kitchenC.CeramicAmount) + int.Parse(updateDto.AddClosetAmount);
+                kitchenC.CeramicAmount = addedAmount.ToString();
+                if (updateDto.Price != null)
+                {
+                    kitchenC.CeramicPrice = updateDto.Price.ToString();
+
+                }
+                await unitOfWork.GetRepository<KitchenCeramic>().UpdateAsyn(kitchenC);
+            }
+            catch (Exception ex)
+            {
+
+                // Hata mesajını almak için ex.Message kullanılır
+                string errorMessage = ex.Message;
+
+                // Hata mesajını loglamak, kullanıcıya göstermek veya başka bir şekilde işlemek için kullanabilirsiniz
+                Console.WriteLine("Hata Mesajı: " + errorMessage);
+
+
+            }
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using DurHoldingErp.Entity.Entities;
+﻿using DurHoldingErp.Entity.DTOs;
+using DurHoldingErp.Entity.Entities;
 using DurHoldingErp.Service.Services.Abstractions;
 using DurHoldingErp.Service.Services.Concretes;
 using Microsoft.AspNetCore.Mvc;
@@ -40,6 +41,25 @@ namespace DurHoldingErp.Web.Areas.Admin.Controllers
             }
 
             return RedirectToAction("BathCeramicAdd", "BathCeramic", new { Area = "Admin" });
+        }
+
+
+        [HttpGet]
+        public ActionResult BathCeramicUpdate()
+        {
+
+            return View();
+
+        }
+
+
+        [HttpPost]
+        public async Task<ActionResult> BathCeramicUpdate(UpdateDto closetUpdateDto)
+        {
+
+            await bathCeramicService.UpdateAmount(closetUpdateDto);
+
+            return RedirectToAction("Index", "BathCeramic", new { Area = "Admin" });
         }
     }
 }

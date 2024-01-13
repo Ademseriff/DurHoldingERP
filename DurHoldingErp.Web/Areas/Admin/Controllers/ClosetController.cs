@@ -1,4 +1,5 @@
-﻿using DurHoldingErp.Entity.Entities;
+﻿using DurHoldingErp.Entity.DTOs;
+using DurHoldingErp.Entity.Entities;
 using DurHoldingErp.Service.Services.Abstractions;
 using DurHoldingErp.Service.Services.Concretes;
 using Microsoft.AspNetCore.Mvc;
@@ -48,6 +49,25 @@ namespace DurHoldingErp.Web.Areas.Admin.Controllers
 
 
             return RedirectToAction("ClosetAdd", "Closet", new { Area = "Admin" });
+        }
+
+
+        [HttpGet]
+        public ActionResult ClosetUpdate()
+        {
+
+            return View();
+
+        }
+
+
+        [HttpPost]
+        public async Task<ActionResult> ClosetUpdate(UpdateDto closetUpdateDto)
+        {
+
+            await closetService.UpdateAmount(closetUpdateDto);
+
+            return RedirectToAction("Index", "Closet", new { Area = "Admin" });
         }
 
 

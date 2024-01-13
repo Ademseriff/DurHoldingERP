@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34309.116
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DurHoldingErp.Web", "DurHoldingErp.Web\DurHoldingErp.Web.csproj", "{E35D15B5-10A3-4ED4-8148-3176E4AD17BB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DurHoldingErp.Web", "DurHoldingErp.Web\DurHoldingErp.Web.csproj", "{E35D15B5-10A3-4ED4-8148-3176E4AD17BB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DurHoldingErp.Entity", "DurHoldingErp.Entity\DurHoldingErp.Entity.csproj", "{A27BE82C-B2E4-42D4-A55A-FD602B06453B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DurHoldingErp.Entity", "DurHoldingErp.Entity\DurHoldingErp.Entity.csproj", "{A27BE82C-B2E4-42D4-A55A-FD602B06453B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DurHoldingErp.Data", "DurHoldingErp.Data\DurHoldingErp.Data.csproj", "{1C1F92BF-EDAD-405E-9253-64DFE11F1398}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DurHoldingErp.Data", "DurHoldingErp.Data\DurHoldingErp.Data.csproj", "{1C1F92BF-EDAD-405E-9253-64DFE11F1398}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DurHoldingErp.Service", "DurHoldingErp.Service\DurHoldingErp.Service.csproj", "{03679835-77D2-48AD-A265-29C859B7437F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DurHoldingErp.Service", "DurHoldingErp.Service\DurHoldingErp.Service.csproj", "{03679835-77D2-48AD-A265-29C859B7437F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DurHoldingErp.Core", "DurHoldingErp.Core\DurHoldingErp.Core.csproj", "{26325854-FC3B-44DB-B768-080515C00D6A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DurHoldingErp.Core", "DurHoldingErp.Core\DurHoldingErp.Core.csproj", "{26325854-FC3B-44DB-B768-080515C00D6A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

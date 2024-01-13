@@ -1,4 +1,5 @@
-﻿using DurHoldingErp.Entity.Entities;
+﻿using DurHoldingErp.Entity.DTOs;
+using DurHoldingErp.Entity.Entities;
 using DurHoldingErp.Service.Services.Abstractions;
 using DurHoldingErp.Service.Services.Concretes;
 using Microsoft.AspNetCore.Authorization;
@@ -45,6 +46,23 @@ namespace DurHoldingErp.Web.Areas.Admin.Controllers
 
            
         }
+        [HttpGet]
+        public async Task<IActionResult> KitchenCeramicUpdate()
+        {
+
+
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> KitchenCeramicUpdate(UpdateDto updateDto)
+        {
+            await kitchenCeramicService.UpdateAmount(updateDto);
+
+            return RedirectToAction("Index", "KitchenCeramic", new { Area = "Admin" });
+        }
+
+
 
 
     }

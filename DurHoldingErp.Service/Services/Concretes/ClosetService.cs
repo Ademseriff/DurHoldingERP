@@ -1,4 +1,5 @@
 ﻿using DurHoldingErp.Data.UnitOfWorks;
+using DurHoldingErp.Entity.DTOs;
 using DurHoldingErp.Entity.Entities;
 using DurHoldingErp.Service.Services.Abstractions;
 using System;
@@ -26,6 +27,31 @@ namespace DurHoldingErp.Service.Services.Concretes
         public async Task AddClosetAsyn(Closet closet)
         {
             await unitOfWork.GetRepository<Closet>().AddAsyn(closet);
+        }
+
+        public async Task UpdateAmount(UpdateDto closetUpdateDto)
+        {
+            try
+            {
+              var closet=  await unitOfWork.GetRepository<Closet>().GetAsyn(x => x.BarcodeId == closetUpdateDto.BarkodId);
+              int addedAmount = int.Parse(closet.ClosetAmount) + int.Parse(closetUpdateDto.AddClosetAmount);
+              closet.ClosetAmount =  addedAmount.ToString();
+              if(closetUpdateDto.Price != null)
+                {
+                 closet.ClosetPrice = closetUpdateDto.Price.ToString();
+
+                }
+              await unitOfWork.GetRepository<Closet>().UpdateAsyn(closet);
+            }catch (Exception ex) {
+
+                // Hata mesajını almak için ex.Message kullanılır
+                string errorMessage = ex.Message;
+
+                // Hata mesajını loglamak, kullanıcıya göstermek veya başka bir şekilde işlemek için kullanabilirsiniz
+                Console.WriteLine("Hata Mesajı: " + errorMessage);
+
+
+            }
         }
     }
 }

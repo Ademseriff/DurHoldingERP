@@ -1,4 +1,5 @@
-﻿using DurHoldingErp.Entity.Entities;
+﻿using DurHoldingErp.Entity.DTOs;
+using DurHoldingErp.Entity.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,5 +16,7 @@ namespace DurHoldingErp.Service.Services.Abstractions
 
         Task<List<BathCeramic>> GetBathCeramicsAsync();
         Task AddBathCeramicAsyn(BathCeramic bathCeramic);
+
+        Task UpdateAmount(UpdateDto updateDto);
     }
 }
