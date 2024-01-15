@@ -1,0 +1,51 @@
+﻿@{
+    List<Cement> cement = ViewBag.Cements;
+}
+
+<style>
+    .custom-margin {
+        text-align: center
+    }
+</style>
+
+<div class="container mt-4">
+    <h2 class="container custom-margin"> CEMENTS </h2>
+    <br />
+    <br />
+    <table class="table table-dark">
+        <thead>
+            <tr>
+
+                <th scope="auto">Barkod</th>
+                <th></th>
+
+                <th scope="auto">Cement Name</th>
+
+
+                <th></th>
+
+                <th scope="auto">Cement Price $</th>
+                <th></th>
+                <th scope="auto">Cement Amount</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var x in cement)
+            {
+                <tr>
+                    <td>@x.BarcodeId
+                    <td>
+                    <td>@x.CementName
+                    <td>
+                    <td>@x.CementPrice
+                    <td>
+                    <td>@x.CementAmount</td>
+
+
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>

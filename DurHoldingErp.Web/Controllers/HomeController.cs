@@ -20,6 +20,11 @@ namespace DurHoldingErp.Web.Controllers
            
             return View();
         }
+        public async Task<IActionResult> CeramicProducts()
+        {
+
+            return View();
+        }
 
         public IActionResult Privacy()
         {

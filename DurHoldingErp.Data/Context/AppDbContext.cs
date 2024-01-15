@@ -39,6 +39,10 @@ namespace DurHoldingErp.Data.Context
 
         public DbSet<BathCeramic> bathCeramics { get; set; }
 
+        public DbSet<Cement> cements  { get; set; }
+
+        public DbSet<Silicon> silicons  { get; set; }
+
 
 
         //assembly dediğmiz şey bizim şu an içinde bulunduğumuz katmanı ifade eder ve bu kullanmış olduğumuz fonksiyon .GetExecutingAssembly() mapping işlemlerini bu katmandaki bütün sınıflar için uygular

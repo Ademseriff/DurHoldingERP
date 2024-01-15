@@ -21,7 +21,6 @@ namespace DurHoldingErp.Service.Extensions
             ////addscoped olarak ekleme olayı.
             //services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 
-
             ////unit of works yapısınının depency injection eklemesi =>Unit of Work yapılan işlemlerin bir birim üzerinden ele alıp, bu olayları saklayan daha sonra ise toplu halde kaydedilmesi, bir hata ile karşılaşıldığında geri alınması ve ya iptal edilmesini sağlamaktır
             //services.AddScoped<IUnitOfWork, UnitOfWork>();
 
@@ -30,6 +29,9 @@ namespace DurHoldingErp.Service.Extensions
             services.AddScoped<IClosetService, ClosetService>();
             services.AddScoped<IKitchenCeramicService,KitchenCeramicService>();
             services.AddScoped<IBathCeramicService, BathCeramicService>();
+            services.AddScoped<ICementService, CementService>();
+            services.AddScoped<ISiliconService, SiliconService>();
+
             return services;
         }
     }
