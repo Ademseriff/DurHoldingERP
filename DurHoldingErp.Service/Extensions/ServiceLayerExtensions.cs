@@ -23,7 +23,7 @@ namespace DurHoldingErp.Service.Extensions
 
             ////unit of works yapısınının depency injection eklemesi =>Unit of Work yapılan işlemlerin bir birim üzerinden ele alıp, bu olayları saklayan daha sonra ise toplu halde kaydedilmesi, bir hata ile karşılaşıldığında geri alınması ve ya iptal edilmesini sağlamaktır
             //services.AddScoped<IUnitOfWork, UnitOfWork>();
-
+            
             services.AddScoped<IEmployeeService, EmployeeService>();
             services.AddScoped<IUsersService, UsersService>();
             services.AddScoped<IClosetService, ClosetService>();
@@ -31,6 +31,8 @@ namespace DurHoldingErp.Service.Extensions
             services.AddScoped<IBathCeramicService, BathCeramicService>();
             services.AddScoped<ICementService, CementService>();
             services.AddScoped<ISiliconService, SiliconService>();
+            services.AddScoped<IInvoiceService, InvoiceService>();
+
 
             return services;
         }
