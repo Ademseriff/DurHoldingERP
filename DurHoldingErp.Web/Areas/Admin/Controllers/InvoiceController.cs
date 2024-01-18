@@ -3,9 +3,9 @@ using DurHoldingErp.Entity.Entities;
 using DurHoldingErp.Service.Services.Abstractions;
 using DurHoldingErp.Service.Services.Concretes;
 using Microsoft.AspNetCore.Mvc;
-using iTextSharp.text;
-using iTextSharp.text.pdf;
+
 using System.IO;
+using System.Security.AccessControl;
 
 namespace DurHoldingErp.Web.Areas.Admin.Controllers
 {
@@ -13,6 +13,7 @@ namespace DurHoldingErp.Web.Areas.Admin.Controllers
     public class InvoiceController : Controller
     {
         private readonly IInvoiceService ınvoiceService;
+        private static Invoice storedInvoice;
 
         public InvoiceController(IInvoiceService ınvoiceService)
         {
@@ -72,19 +73,22 @@ namespace DurHoldingErp.Web.Areas.Admin.Controllers
             }
             else
             {
-               
-                ViewBag.x = x;
-                return RedirectToAction("WritePrintPDF", "Invoice", new { Area = "Admin" });
+
+                storedInvoice = x;
+                
+                return RedirectToAction("WritePrintPDF", "Invoice", new { Area = "Admin"});
             }
 
         }
-
+        
         [HttpGet]
-        public ActionResult WritePrintPDF(Invoice ınvoice)
+        public ActionResult WritePrintPDF()
         {
-            
 
-            return View(ınvoice);
+            Invoice x = storedInvoice;
+
+           
+            return View(x);
         }
 
     }

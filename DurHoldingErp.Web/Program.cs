@@ -19,9 +19,10 @@ namespace DurHoldingErp.Web
             //ioc conteinara ekleme iþlemini yaptýk dependency injection.
             builder.Services.LoadDataLayerExtension(builder.Configuration);
             builder.Services.LoadServiceLayerExtension();
-            
+           
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+          
             //db contex ayarlarý.
             builder.Services.AddDbContext<AppDbContext>(opt => opt.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
      
