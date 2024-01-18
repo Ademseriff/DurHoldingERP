@@ -34,6 +34,19 @@ namespace DurHoldingErp.Service.Services.Concretes
             return await unitOfWork.GetRepository<Invoice>().GetAllAsyn();
         }
 
+        public async Task<Invoice> GetSingleInvoiceAsync(int InvoiceNumber)
+        {
+            try
+            {
+                return await unitOfWork.GetRepository<Invoice>().GetAsyn(x => x.InvoiceNumber == InvoiceNumber);
+            }
+            catch
+            {
+                return null;
+            }
+
+        }
+
         public async Task AddInvoiceAsyn(Invoice ınvoice)
         {
            

@@ -1,0 +1,55 @@
+﻿@model Invoice;
+@{
+    Layout = null;
+    
+
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fatura Bilgisi</title>
+</head>
+<body>
+  
+    <h2>Fatura Bilgisi</h2>
+    
+    <table border="1">
+        <tr>
+            <th>Fatura Numarası</th>
+            <td>@Model.InvoiceNumber</td>
+        </tr>
+        <tr>
+            <th>Satıcı</th>
+            <td>@Model.SellerInformation</td>
+        </tr>
+        <tr>
+            <th>Alıcı</th>
+            <td>@Model.ReceiverInformations</td>
+        </tr>
+        <tr>
+            <th>Ürün</th>
+            <td>@Model.Product</td>
+        </tr>
+        <tr>
+            <th>Ürün Barcode</th>
+            <td>@Model.BarcodeId</td>
+        </tr>
+        <tr>
+            <th>Satın Alınan Adet</th>
+            <td>@Model.Amount</td>
+        </tr>
+        <tr>
+            <th>Ödenen Ücret</th>
+            <td>@Model.Piece $</td>
+        </tr>
+        <tr>
+            <th>Faturanın Yaratılma Tarihi</th>
+            <td>@Model.CreateTime</td>
+        </tr>
+    </table>
+
+</body>
+</html>
+<button onclick="window.print()">Sayfayı Yazdır</button>
