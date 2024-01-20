@@ -51,7 +51,7 @@ namespace DurHoldingErp.Web
 
             app.UseRouting();
 
-
+            
            
             app.UseAuthentication();
             app.UseAuthorization();
