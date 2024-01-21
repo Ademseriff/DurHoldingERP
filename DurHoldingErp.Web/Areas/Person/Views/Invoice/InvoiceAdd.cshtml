@@ -1,0 +1,96 @@
+﻿@model Invoice;
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    button {
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        background-color: #007BFF;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+    }
+
+    .custom-margin {
+        text-align: center
+    }
+
+    button:hover {
+        background-color: #0056b3;
+    }
+
+    .alert-container {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 20px;
+        background-color: #f8d7da;
+        border: 1px solid #f5c6cb;
+        border-radius: 5px;
+        color: #721c24;
+    }
+
+        .alert-container.show {
+            display: block;
+        }
+</style>
+
+
+<div class="container mt-4">
+    <h1 class="custom-margin"> Fatura Ekle </h1>
+
+    <form asp-action="InvoiceAdd" asp-controller="Invoice" asp-area="Person" method="post" target="_self">
+        <div class="form-group container mt-4">
+            <label asp-for="ReceiverInformations">Satılan  Adı Soyadı</label>
+            <input asp-for="ReceiverInformations" class="form-control" placeholder="Ad ve Soyad Giriniz">
+        </div>
+
+
+
+        <div class="form-group container mt-4">
+            <label asp-for="Amount">Ücret</label>
+            <input asp-for="Amount" class="form-control" placeholder="Ödenen miktar">
+        </div>
+
+        <div class="form-group container mt-4">
+            <label for="exampleFormControlSelect1">Ürün Şekli</label>
+            <select asp-for="Product" class="form-control" id="exampleFormControlSelect1">
+                <option value="closet">Klozet</option>
+                <option value="KitchenCeramic">Mutfak Seramik</option>
+                <option value="BathroomCeramic">Banyo Seramik</option>
+                <option value="Cement">Çimento</option>
+                <option value="Silicon">Silikon</option>
+
+            </select>
+            <br />
+        </div>
+        <div class="form-group container mt-4">
+            <label asp-for="BarcodeId">Satılacak ürün barcode id</label>
+            <input asp-for="BarcodeId" class="form-control" placeholder="Lütfen mevcut bulunan adedi giriniz">
+        </div>
+
+        <div class="form-group container mt-4">
+            <label asp-for="Piece">Satılan Adet</label>
+            <input asp-for="Piece" class="form-control" placeholder="Satılan Miktar">
+        </div>
+
+
+        <div class="form-group container mt-4">
+            <br />
+            <button type="submit" class="btn btn-primary container mt-4 custom-margin">Fatura  Ekle</button>
+        </div>
+    </form>
+
+    <!-- Eğer gerekirse showAlert() fonksiyonu için JavaScript kodunuzu buraya ekleyebilirsiniz -->
+</div>

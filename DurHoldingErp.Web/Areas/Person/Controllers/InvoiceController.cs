@@ -1,16 +1,11 @@
-﻿using DurHoldingErp.Entity.DTOs;
-using DurHoldingErp.Entity.Entities;
+﻿using DurHoldingErp.Entity.Entities;
 using DurHoldingErp.Service.Services.Abstractions;
-using DurHoldingErp.Service.Services.Concretes;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-using System.IO;
-using System.Security.AccessControl;
-
-namespace DurHoldingErp.Web.Areas.Admin.Controllers
+namespace DurHoldingErp.Web.Areas.Person.Controllers
 {
-    [Area("Admin")]
+    [Area("Person")]
     [Authorize]
     public class InvoiceController : Controller
     {
@@ -28,7 +23,7 @@ namespace DurHoldingErp.Web.Areas.Admin.Controllers
             ViewBag.ınvoice = ınvoice;
             return View();
 
-           
+
         }
 
         [HttpGet]
@@ -42,26 +37,18 @@ namespace DurHoldingErp.Web.Areas.Admin.Controllers
         [HttpPost]
         public async Task<ActionResult> InvoiceAdd(Invoice ınvoice)
         {
-            
-           await ınvoiceService.AddInvoiceAsyn(ınvoice);
+
+            await ınvoiceService.AddInvoiceAsyn(ınvoice);
             return View();
 
         }
 
         [HttpGet]
-        public  ActionResult InvoiceWrite()
+        public ActionResult InvoiceWrite()
         {
-           
+
             return View();
 
-        }
-        [HttpGet]
-        public ActionResult PrintPDF()
-        {
-           
-
-
-            return RedirectToAction("InvoiceAdd", "Invoice", new { Area = "Admin" });
         }
 
         [HttpPost]
@@ -71,25 +58,25 @@ namespace DurHoldingErp.Web.Areas.Admin.Controllers
             var x = await ınvoiceService.GetSingleInvoiceAsync(ınvoice.InvoiceNumber);
             if (x == null)
             {
-                return RedirectToAction("InvoiceAdd", "Invoice", new { Area = "Admin" });
+                return RedirectToAction("InvoiceAdd", "Invoice", new { Area = "Person" });
             }
             else
             {
 
                 storedInvoice = x;
-                
-                return RedirectToAction("WritePrintPDF", "Invoice", new { Area = "Admin"});
+
+                return RedirectToAction("WritePrintPDF", "Invoice", new { Area = "Person" });
             }
 
         }
-        
+
         [HttpGet]
         public ActionResult WritePrintPDF()
         {
 
             Invoice x = storedInvoice;
 
-           
+
             return View(x);
         }
 

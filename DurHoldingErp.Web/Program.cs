@@ -66,6 +66,14 @@ namespace DurHoldingErp.Web
                     
                 );
 
+
+                endpoints.MapAreaControllerRoute(
+                    name: "Person",
+                    areaName: "Person",
+                    pattern: "Person/{controller=Home}/{action=Index}/{id?}"
+
+                );
+
                 endpoints.MapDefaultControllerRoute();
 
             });

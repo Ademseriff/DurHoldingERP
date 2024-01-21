@@ -2,11 +2,13 @@
 using DurHoldingErp.Entity.Entities;
 using DurHoldingErp.Service.Services.Abstractions;
 using DurHoldingErp.Service.Services.Concretes;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DurHoldingErp.Web.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize]
     public class CementController : Controller
     {
         private readonly ICementService cementService;

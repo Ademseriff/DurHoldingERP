@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        #panel {
+            max-width: 800px; /* Tabloyu genişletmek için max-width değeri artırıldı */
+            margin: 50px auto;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 16px; /* Hücre içeriğini genişletmek için padding değeri artırıldı */
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <div id="panel">
+       
+
+        <p><strong>Bu rolün sahip olduğu yetenekler:</strong></p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Kural</th>
+                    <th>Açıklama</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Sadece tablolar görüntülenebilir. (Hizmet Tabloları)</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Sadece fatura kesilebilir ve faturalar görüntülenebilir.</td>
+                </tr>
+
+                <tr>
+                    <td>3</td>
+                    <td>Çıktı alınıabilir.</td>
+                </tr>
+                <!-- Dilerseniz daha fazla kural ekleyebilirsiniz -->
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

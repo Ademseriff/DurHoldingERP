@@ -1,0 +1,119 @@
+﻿@model Invoice
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fatura Bilgisi</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            position: relative; /* Body içinde pozisyonu belirle */
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .signature-container {
+            position: absolute;
+            bottom: 10px;
+            right: 10px; /* Sağa olan mesafe */
+            display: flex;
+            align-items: center;
+            justify-content: flex-end; /* Sağa hizala */
+        }
+
+        .signature-text {
+            color: #333;
+            font-weight: bold;
+            margin-right: 5px; /* İmza metni ile imza arasındaki boşluk */
+        }
+
+        img.signature {
+            position: absolute;
+            bottom: 10px; /* Sağ alta olan mesafe */
+            right: 10px; /* Sağa olan mesafe */
+            height: 50px; /* İmza yüksekliği */
+        }
+    </style>
+</head>
+<body>
+    <h2>Fatura Bilgisi</h2>
+    <table>
+        <tr>
+            <th>Fatura Numarası</th>
+            <td>@Model.InvoiceNumber</td>
+        </tr>
+        <tr>
+            <th>Satıcı</th>
+            <td>@Model.SellerInformation</td>
+        </tr>
+        <tr>
+            <th>Alıcı</th>
+            <td>@Model.ReceiverInformations</td>
+        </tr>
+        <tr>
+            <th>Ürün</th>
+            <td>@Model.Product</td>
+        </tr>
+        <tr>
+            <th>Ürün Barcode</th>
+            <td>@Model.BarcodeId</td>
+        </tr>
+        <tr>
+            <th>Satın Alınan Adet</th>
+            <td>@Model.Amount adet</td>
+        </tr>
+        <tr>
+            <th>Ödenen Ücret</th>
+            <td>@Model.Piece $</td>
+        </tr>
+        <tr>
+            <th>Faturanın Yaratılma Tarihi</th>
+            <td>@Model.CreateTime</td>
+        </tr>
+    </table>
+    <button onclick="window.print()">Sayfayı Yazdır</button>
+    <br />
+    <br />
+    @*     <span class="signature">İmza :</span>
+    <img src="~/image/atatürkimza.png" class="signature" alt="Ürün Resmi"> <!-- İmza ekle --> *@
+    <div class="signature-container">
+        <span class="signature-text">İmza :</span>
+        <img src="~/image/atatürkimza.png" class="signature" alt="Ürün Resmi">
+    </div>
+</body>
+</html>
+
+

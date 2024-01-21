@@ -1,0 +1,40 @@
+﻿@model Invoice;
+<style>
+
+    /* Özel stil dosyanıza ekleyin */
+    .invoice-form {
+        max-width: 400px; /* Formun maksimum genişliği */
+        margin: auto; /* Formu merkeze al */
+        padding: 20px; /* Formun iç kenar boşluğu */
+    }
+
+    .control-label {
+        display: block; /* Etiketleri blok olarak göstererek alt alta yerleştir */
+        margin-bottom: 10px; /* Etiketlerin altında boşluk bırak */
+    }
+
+    .input-group {
+        margin-bottom: 15px; /* Giriş alanı ve düğme arasında boşluk bırak */
+    }
+
+</style>
+
+
+
+<form asp-action="PrintPDF" asp-controller="Invoice" asp-area="Person" class="invoice-form">
+    <div class="form-group">
+        <label asp-for="InvoiceNumber" class="control-label">Fatura Numarası</label>
+        <div class="input-group">
+            <input asp-for="InvoiceNumber" class="form-control" />
+
+        </div>
+    </div>
+
+    <!-- Diğer form elemanları buraya eklenebilir -->
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">PDF Yazdır</button>
+    </div>
+</form>
+
+
