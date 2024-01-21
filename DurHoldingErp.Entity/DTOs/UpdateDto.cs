@@ -12,5 +12,7 @@ namespace DurHoldingErp.Entity.DTOs
 
         public string? Price { get; set; }
         public string AddClosetAmount { get; set; }
+
+       
     }
 }

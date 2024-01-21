@@ -10,11 +10,13 @@ namespace DurHoldingErp.Web.Areas.Person.Controllers
     public class InvoiceController : Controller
     {
         private readonly IInvoiceService ınvoiceService;
+   
         private static Invoice storedInvoice;
 
         public InvoiceController(IInvoiceService ınvoiceService)
         {
             this.ınvoiceService = ınvoiceService;
+           
         }
 
         public async Task<IActionResult> Index()
@@ -29,7 +31,7 @@ namespace DurHoldingErp.Web.Areas.Person.Controllers
         [HttpGet]
         public ActionResult InvoiceAdd()
         {
-
+           
             return View();
 
         }
@@ -39,6 +41,7 @@ namespace DurHoldingErp.Web.Areas.Person.Controllers
         {
 
             await ınvoiceService.AddInvoiceAsyn(ınvoice);
+
             return View();
 
         }
