@@ -25,6 +25,16 @@ namespace DurHoldingErp.Web.Areas.Admin.Controllers
             return View();
 
         }
+        [HttpPost]
+        public async Task<IActionResult> DeleteCement(Cement cement)
+        {
+
+            await cementService.DeleteCementAsyn(cement);
+
+            return RedirectToAction("Index", "Cement", new { Area = "Admin" });
+
+
+        }
 
         [HttpGet]
         public ActionResult CementAdd()

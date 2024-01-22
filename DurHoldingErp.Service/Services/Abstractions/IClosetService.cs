@@ -15,6 +15,9 @@ namespace DurHoldingErp.Service.Services.Abstractions
 
         Task UpdateAmount(UpdateDto closetUpdateDto);
 
+        Task DeleteClosetAsyn(Closet closet);
+        Task<Closet> GetClosetAsyn(Closet closet);
+
 
     }
 }

@@ -27,7 +27,11 @@ namespace DurHoldingErp.Service.Services.Concretes
         {
             await unitOfWork.GetRepository<Cement>().AddAsyn(cement);
         }
+        public async Task DeleteCementAsyn(Cement cement)
+        {
 
+            await unitOfWork.GetRepository<Cement>().DeleteAsyn(cement);
+        }
         public async Task UpdateAmount(UpdateDto updateDto)
         {
             try

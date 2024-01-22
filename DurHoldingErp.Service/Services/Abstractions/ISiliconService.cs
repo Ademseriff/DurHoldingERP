@@ -15,5 +15,7 @@ namespace DurHoldingErp.Service.Services.Abstractions
         Task AddSiliconAsyn(Silicon silicon);
 
         Task UpdateAmount(UpdateDto updateDto);
+
+        Task DeleteSiliconAsyn(Silicon silicon);
     }
 }

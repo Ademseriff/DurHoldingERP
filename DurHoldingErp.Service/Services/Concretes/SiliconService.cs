@@ -28,7 +28,11 @@ namespace DurHoldingErp.Service.Services.Concretes
         {
             await unitOfWork.GetRepository<Silicon>().AddAsyn(silicon);
         }
+        public async Task DeleteSiliconAsyn(Silicon silicon)
+        {
 
+            await unitOfWork.GetRepository<Silicon>().DeleteAsyn(silicon);
+        }
         public async Task UpdateAmount(UpdateDto updateDto)
         {
             

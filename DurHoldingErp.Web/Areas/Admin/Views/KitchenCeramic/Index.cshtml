@@ -1,4 +1,5 @@
-﻿@{
+﻿@model KitchenCeramic
+@{
     List<KitchenCeramic> KitchenCeramic = ViewBag.kitchenCeramics;
 }
 
@@ -26,6 +27,8 @@
 
                
                 <th scope="col">Amount</th>
+                <th scope="col">DELETE</th>
+
                
             </tr>
         </thead>
@@ -41,8 +44,19 @@
                     <td>@kullanıcı.CeramicPrice</td>
 
                     <td>@kullanıcı.CeramicAmount</td>
-                   
 
+                    <td>
+                        <form method="post" asp-action="DeleteKitchenCeramic" asp-area="Admin" asp-controller="KitchenCeramic">
+                            <input asp-for="Id" type="hidden" name="Id" value="@kullanıcı.Id" />
+                            <input asp-for="BarcodeId" type="hidden" name="BarcodeId" value="@kullanıcı.BarcodeId" />
+                            <input asp-for="CeramicPrice" type="hidden" name="CeramicPrice" value="@kullanıcı.CeramicPrice" />
+                            <input asp-for="CeramicAmount" type="hidden" name="CeramicAmount" value="@kullanıcı.CeramicAmount" />
+                            <input asp-for="CeramicName" type="hidden" name="CeramicName" value="@kullanıcı.CeramicName" />
+                            <input asp-for="CreateTime" type="hidden" name="CreateTime" value="@kullanıcı.CreateTime" />
+                            <input asp-for="IsDeleted" type="hidden" name="IsDeleted" value="@kullanıcı.IsDeleted" />
+                            <button type="submit" style="color:red">DELETE</button>
+                        </form>
+                    </td>
                 </tr>
             }
 

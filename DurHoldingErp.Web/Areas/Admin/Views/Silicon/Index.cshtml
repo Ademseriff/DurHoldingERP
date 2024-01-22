@@ -1,4 +1,5 @@
-﻿@{
+﻿@model Silicon
+@{
     List<Silicon> silicon = ViewBag.silicons;
 }
 
@@ -28,6 +29,7 @@
                 <th scope="auto">Silicon Price $</th>
                 <th></th>
                 <th scope="auto">Silicon Amount</th>
+                <th scope="auto">DELETE</th>
 
             </tr>
         </thead>
@@ -43,6 +45,18 @@
                     <td>
                     <td>@x.SiliconAmount</td>
 
+                    <td>
+                        <form method="post" asp-action="DeleteSilicon" asp-area="Admin" asp-controller="Silicon">
+                            <input asp-for="Id" type="hidden" name="Id" value="@x.Id" />
+                            <input asp-for="BarcodeId" type="hidden" name="BarcodeId" value="@x.BarcodeId" />
+                            <input asp-for="SiliconPrice" type="hidden" name="SiliconPrice" value="@x.SiliconPrice" />
+                            <input asp-for="SiliconAmount" type="hidden" name="SiliconAmount" value="@x.SiliconAmount" />
+                            <input asp-for="SiliconName" type="hidden" name="SiliconName" value="@x.SiliconName" />
+                            <input asp-for="CreateTime" type="hidden" name="CreateTime" value="@x.CreateTime" />
+                            <input asp-for="IsDeleted" type="hidden" name="IsDeleted" value="@x.IsDeleted" />
+                            <button type="submit" style="color:red">DELETE</button>
+                        </form>
+                    </td>
 
                 </tr>
             }

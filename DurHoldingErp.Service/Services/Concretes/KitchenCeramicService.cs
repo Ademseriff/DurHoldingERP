@@ -28,7 +28,11 @@ namespace DurHoldingErp.Service.Services.Concretes
         {
             await unitOfWork.GetRepository<KitchenCeramic>().AddAsyn(kitchenCeramic);
         }
+        public async Task DeleteKitchenCeramicAsyn(KitchenCeramic kitchenCeramic)
+        {
 
+            await unitOfWork.GetRepository<KitchenCeramic>().DeleteAsyn(kitchenCeramic);
+        }
 
         public async Task UpdateAmount(UpdateDto updateDto)
         {

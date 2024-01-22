@@ -1,4 +1,5 @@
-﻿@{
+﻿@model BathCeramic
+@{
     List<BathCeramic> bath = ViewBag.bath;
 }
 
@@ -28,7 +29,7 @@
                 <th scope="auto">Bath Ceramic Price $</th>
                 <th></th>
                 <th scope="auto">Bath Ceramic Amount</th>
-
+                <th scope="auto">DELETE</th>
             </tr>
         </thead>
         <tbody>
@@ -43,7 +44,18 @@
                     <td>
                     <td>@x.CeramicAmount</td>
 
-
+                    <td>
+                        <form method="post" asp-action="DeleteBathCeramic" asp-area="Admin" asp-controller="BathCeramic">
+                            <input asp-for="Id" type="hidden" name="Id" value="@x.Id" />
+                            <input asp-for="BarcodeId" type="hidden" name="BarcodeId" value="@x.BarcodeId" />
+                            <input asp-for="CeramicPrice" type="hidden" name="CeramicPrice" value="@x.CeramicPrice" />
+                            <input asp-for="CeramicAmount" type="hidden" name="CeramicAmount" value="@x.CeramicAmount" />
+                            <input asp-for="CeramicName" type="hidden" name="CeramicName" value="@x.CeramicName" />
+                            <input asp-for="CreateTime" type="hidden" name="CreateTime" value="@x.CreateTime" />
+                            <input asp-for="IsDeleted" type="hidden" name="IsDeleted" value="@x.IsDeleted" />
+                            <button type="submit" style="color:red">DELETE</button>
+                        </form>
+                    </td>
                 </tr>
             }
 

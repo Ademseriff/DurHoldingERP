@@ -25,6 +25,17 @@ namespace DurHoldingErp.Web.Areas.Admin.Controllers
             ViewBag.bath = bath;
             return View();
         }
+
+        [HttpPost]
+        public async Task<IActionResult> DeleteBathCeramic(BathCeramic bathCeramic)
+        {
+
+            await bathCeramicService.DeleteBathCeramicAsyn(bathCeramic);
+
+            return RedirectToAction("Index", "BathCeramic", new { Area = "Admin" });
+
+
+        }
         [HttpGet]
         public IActionResult BathCeramicAdd()
         {

@@ -15,5 +15,7 @@ namespace DurHoldingErp.Service.Services.Abstractions
         Task AddKitchenCeramicAsyn(KitchenCeramic kitchenCeramic);
 
         Task UpdateAmount(UpdateDto UpdateDto);
+
+        Task DeleteKitchenCeramicAsyn(KitchenCeramic kitchenCeramic);
     }
 }

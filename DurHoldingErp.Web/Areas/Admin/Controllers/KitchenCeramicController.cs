@@ -25,6 +25,17 @@ namespace DurHoldingErp.Web.Areas.Admin.Controllers
             return View();
         }
 
+        [HttpPost]
+        public async Task<IActionResult> DeleteKitchenCeramic(KitchenCeramic kitchenCeramic)
+        {
+
+            await kitchenCeramicService.DeleteKitchenCeramicAsyn(kitchenCeramic);
+
+            return RedirectToAction("Index", "KitchenCeramic", new { Area = "Admin" });
+
+
+        }
+
         public ActionResult KitchenCeramicAdd()
         {
             

@@ -25,7 +25,16 @@ namespace DurHoldingErp.Web.Areas.Admin.Controllers
             return View();
            
         }
+        [HttpPost]
+        public async Task<IActionResult> DeleteSilicon(Silicon silicon)
+        {
 
+            await siliconService.DeleteSiliconAsyn(silicon);
+
+            return RedirectToAction("Index", "Silicon", new { Area = "Admin" });
+
+
+        }
         [HttpGet]
         public IActionResult SiliconAdd()
         {

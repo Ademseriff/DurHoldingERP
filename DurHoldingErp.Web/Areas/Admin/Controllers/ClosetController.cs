@@ -22,8 +22,20 @@ namespace DurHoldingErp.Web.Areas.Admin.Controllers
         {
             var closets = await closetService.GetClosetsAsync();
             ViewBag.Closets = closets;
+           
+           
             return View();
            
+        }
+        [HttpPost]
+        public async Task<IActionResult> DeleteCloset(Closet closet)
+        {
+           
+            await closetService.DeleteClosetAsyn(closet);
+    
+            return RedirectToAction("Index", "Closet", new { Area = "Admin" });
+
+
         }
         [HttpGet]
         public  ActionResult ClosetAdd()

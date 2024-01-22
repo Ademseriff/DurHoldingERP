@@ -13,7 +13,7 @@ namespace DurHoldingErp.Service.Services.Concretes
     public class ClosetService : IClosetService
     {
         private readonly IUnitOfWork unitOfWork;
-
+        private Closet _closet;
         public ClosetService(IUnitOfWork unitOfWork)
         {
             this.unitOfWork = unitOfWork;
@@ -27,6 +27,16 @@ namespace DurHoldingErp.Service.Services.Concretes
         public async Task AddClosetAsyn(Closet closet)
         {
             await unitOfWork.GetRepository<Closet>().AddAsyn(closet);
+        }
+        public async Task<Closet> GetClosetAsyn(Closet closet)
+        {
+           
+            return await unitOfWork.GetRepository<Closet>().GetAsyn(x => x.Id == closet.Id); ;
+        }
+        public async Task DeleteClosetAsyn(Closet closet)
+        {
+           
+            await unitOfWork.GetRepository<Closet>().DeleteAsyn(closet);
         }
 
         public async Task UpdateAmount(UpdateDto closetUpdateDto)
