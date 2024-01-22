@@ -29,5 +29,7 @@ namespace DurHoldingErp.Entity.Entities
         public string Amount { get; set; }
 
         public string Piece { get; set; }
+
+        public string? EMail { get;set; } 
     }
 }
