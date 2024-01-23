@@ -28,29 +28,35 @@
                 <th></th>
                 <th scope="auto">Ürün</th>
                 <th scope="auto">Ürün Barcode</th>
-                <th scope="auto">Satın Alınan adet</th>
                 <th scope="auto">Ödenen Ücret</th>
+                <th scope="auto">Satın Alınan adet</th>
+               
                 <th scope="auto"> Faturanın Yaratılma Tarihi</th>
             </tr>
         </thead>
         <tbody>
             @foreach (var x in ınvoice)
             {
-                <tr>
-                    <td>@x.InvoiceNumber
-                    <td>
-                    <td>@x.SellerInformation
-                    <td>
-                    <td>@x.ReceiverInformations
-                    <td>
-                    <td>@x.Product</td>
-                    <td>@x.BarcodeId</td>
-                    <td>@x.Amount</td>
-                    <td>@x.Piece $</td>
-                    <td>@x.CreateTime</td>
+                @if (x.IsDeleted==false)
+                {
+                    <tr>
+                        <td>@x.InvoiceNumber
+                        <td>
+                        <td>@x.SellerInformation
+                        <td>
+                        <td>@x.ReceiverInformations
+                        <td>
+                        <td>@x.Product</td>
+                        <td>@x.BarcodeId</td>
+                        <td>@x.Piece $</td>
+                        <td>@x.Amount</td>
+
+                        <td>@x.CreateTime</td>
 
 
-                </tr>
+                    </tr>
+                }
+             
             }
 
         </tbody>

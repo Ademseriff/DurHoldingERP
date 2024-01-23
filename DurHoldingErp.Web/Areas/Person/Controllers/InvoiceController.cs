@@ -58,7 +58,7 @@ namespace DurHoldingErp.Web.Areas.Person.Controllers
                     $"Satılan kişi : {ınvoice.ReceiverInformations} \n " +
                     $"Fatura No : {ınvoice.InvoiceNumber.ToString()} \n" +
                     $"Satılan Ürün: {ınvoice.Product} \n " +
-                    $"Satılan Adet : {ınvoice.Piece} \n " +
+                    $"Satılan Adet : {ınvoice.Amount} \n " +
                     $"Satılan Ürün Barcode ID : {ınvoice.BarcodeId} \n " +
                     $"BİZİ TERCİH ETTİĞİNİZ İÇİN TEŞEKKÜR EDERİZ \n" +
                     $"THANK YOU FOR CHOOSING US";
