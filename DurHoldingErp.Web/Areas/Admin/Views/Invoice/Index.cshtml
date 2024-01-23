@@ -1,4 +1,5 @@
-﻿@{
+﻿@model Invoice
+@{
     List<Invoice> ınvoice = ViewBag.ınvoice;
 }
 
@@ -31,26 +32,46 @@
                 <th scope="auto">Satın Alınan adet</th>
                 <th scope="auto">Ödenen Ücret</th>
                 <th scope="auto"> Faturanın Yaratılma Tarihi</th>
+                <th scope="auto">SOFT DELETE</th>
             </tr>
         </thead>
         <tbody>
             @foreach (var x in ınvoice)
             {
-                <tr>
-                    <td>@x.InvoiceNumber
-                    <td>
-                    <td>@x.SellerInformation
-                    <td>
-                    <td>@x.ReceiverInformations
-                    <td>
-                    <td>@x.Product</td>
-                    <td>@x.BarcodeId</td>
-                    <td>@x.Amount</td>
-                    <td>@x.Piece $</td>
-                    <td>@x.CreateTime</td>
+                @if (x.IsDeleted == false)
+                {
+                    <tr>
+                        <td>@x.InvoiceNumber
+                        <td>
+                        <td>@x.SellerInformation
+                        <td>
+                        <td>@x.ReceiverInformations
+                        <td>
+                        <td>@x.Product</td>
+                        <td>@x.BarcodeId</td>
+                        <td>@x.Amount</td>
+                        <td>@x.Piece $</td>
+                        <td>@x.CreateTime</td>
 
+                        <td>
+                            <form method="post" asp-action="PasifDeleteInvoice" asp-area="Admin" asp-controller="Invoice">
+                                <input asp-for="Id" type="hidden" name="Id" value="@x.Id" />
+                                <input asp-for="InvoiceNumber" type="hidden" name="InvoiceNumber" value="@x.InvoiceNumber" />
+                                <input asp-for="SellerInformation" type="hidden" name="SellerInformation" value="@x.SellerInformation" />
+                                <input asp-for="ReceiverInformations" type="hidden" name="ReceiverInformations" value="@x.ReceiverInformations" />
+                                <input asp-for="Product" type="hidden" name="Product" value="@x.Product" />
+                                <input asp-for="BarcodeId" type="hidden" name="BarcodeId" value="@x.BarcodeId" />
+                                <input asp-for="Amount" type="hidden" name="Amount" value="@x.Amount" />
+                                <input asp-for="Piece" type="hidden" name="Piece" value="@x.Piece" />
+                                <input asp-for="CreateTime" type="hidden" name="CreateTime" value="@x.CreateTime" />
+                                <input asp-for="IsDeleted" type="hidden" name="IsDeleted" value="@x.IsDeleted" />
+                                <button type="submit" style="color:black ; background-color:yellow;"> SOFT DELETE</button>
+                            </form>
+                        </td>
 
-                </tr>
+                    </tr>
+                }
+      
             }
 
         </tbody>

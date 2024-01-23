@@ -14,5 +14,6 @@ namespace DurHoldingErp.Service.Services.Abstractions
         Task<Employee> GetEmployeeAsync(string name);
 
         Task AddUserAsyn(Employee employee);
+        Task PasifDeleteEmployeeAsyn(Employee employee);
     }
 }

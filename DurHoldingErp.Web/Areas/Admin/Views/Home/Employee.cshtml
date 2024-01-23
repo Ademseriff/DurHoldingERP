@@ -1,4 +1,5 @@
-﻿@{
+﻿@model Employee
+@{
     ViewData["Title"] = "admin page";
     List<Employee> myEmployee = ViewBag.Employees;
 
@@ -105,21 +106,41 @@
                 <th scope="col">Sallary</th>
                 <th scope="col">Departman</th>
                 <th scope="col">CreateTime</th>
+                <th scope="col">SOFT DELETE</th>
             </tr>
         </thead>
         <tbody>
             @foreach (var kullanıcı in myEmployee)
             {
-                <tr>
-                   
-                    <td>@kullanıcı.Name <td>
-                    <td>@kullanıcı.Surname <td>
-                    <td>@kullanıcı.Email</td>
-                    <td>@kullanıcı.Sallary</td>
-                    <td>@DepartmanName(kullanıcı.DepartmentId)</td>
-                    <td>@kullanıcı.CreateTime</td>
-                    
-                </tr>
+                @if (kullanıcı.IsDeleted==false)
+                {
+                    <tr>
+
+                        <td>@kullanıcı.Name
+                        <td>
+                        <td>@kullanıcı.Surname
+                        <td>
+                        <td>@kullanıcı.Email</td>
+                        <td>@kullanıcı.Sallary</td>
+                        <td>@DepartmanName(kullanıcı.DepartmentId)</td>
+                        <td>@kullanıcı.CreateTime</td>
+                        <td>
+                            <form method="post" asp-action="PasifDeleteEmployee" asp-area="Admin" asp-controller="Home">
+                                <input asp-for="Id" type="hidden" name="Id" value="@kullanıcı.Id" />
+                                <input asp-for="Name" type="hidden" name="Name" value="@kullanıcı.Name" />
+                                <input asp-for="Surname" type="hidden" name="Surname" value="@kullanıcı.Surname" />
+                                <input asp-for="Email" type="hidden" name="Email" value="@kullanıcı.Email" />
+                                <input asp-for="Sallary" type="hidden" name="Sallary" value="@kullanıcı.Sallary" />
+                                <input asp-for="DepartmentId" type="hidden" name="DepartmentId" value="@kullanıcı.DepartmentId" />
+                                <input asp-for="CreateTime" type="hidden" name="CreateTime" value="@kullanıcı.CreateTime" />
+                                <input asp-for="IsDeleted" type="hidden" name="IsDeleted" value="@kullanıcı.IsDeleted" />
+                                <input asp-for="Age" type="hidden" name="Age" value="@kullanıcı.Age" />
+                                <button type="submit" style="color:black ; background-color:yellow;"> KOV</button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+           
             }
 
         </tbody>

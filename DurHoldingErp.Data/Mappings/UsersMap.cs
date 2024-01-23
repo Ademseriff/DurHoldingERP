@@ -23,7 +23,7 @@ namespace DurHoldingErp.Data.Mappings
                 Name = "Adem",
                 Email ="ademserifd@gmail.com",
                 Password = "123456",
-                Role ="Admin"
+                Role ="SüperAdmin"
             }, new Users
             {
                 Id = Guid.Parse("242DD5EF-F646-4BBE-9274-6FBB6A26981B"),

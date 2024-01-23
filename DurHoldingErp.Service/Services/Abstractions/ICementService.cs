@@ -15,5 +15,6 @@ namespace DurHoldingErp.Service.Services.Abstractions
 
         Task UpdateAmount(UpdateDto updateDto);
         Task DeleteCementAsyn(Cement cement);
+        Task PasifDeleteCementAsyn(Cement cement);
     }
 }

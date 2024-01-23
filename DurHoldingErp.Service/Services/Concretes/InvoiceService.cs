@@ -33,7 +33,11 @@ namespace DurHoldingErp.Service.Services.Concretes
         {
             return await unitOfWork.GetRepository<Invoice>().GetAllAsyn();
         }
-
+        public async Task PasifDeleteInvoiceAsyn(Invoice ınvoice)
+        {
+            ınvoice.IsDeleted = true;
+            await unitOfWork.GetRepository<Invoice>().UpdateAsyn(ınvoice);
+        }
         public async Task<Invoice> GetSingleInvoiceAsync(int InvoiceNumber)
         {
             try

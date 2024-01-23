@@ -12,5 +12,6 @@ namespace DurHoldingErp.Service.Services.Abstractions
         Task<List<Invoice>> GetInvoiceAsync();
         Task AddInvoiceAsyn(Invoice ınvoice);
         Task<Invoice> GetSingleInvoiceAsync(int InvoiceNumber);
+        Task PasifDeleteInvoiceAsyn(Invoice ınvoice);
     }
 }

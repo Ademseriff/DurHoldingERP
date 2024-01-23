@@ -34,6 +34,14 @@ namespace DurHoldingErp.Web.Areas.Admin.Controllers
 
             return RedirectToAction("Index", "BathCeramic", new { Area = "Admin" });
 
+        }
+        [HttpPost]
+        public async Task<IActionResult> PasifDeleteBathCeramic(BathCeramic bathCeramic)
+        {
+
+            await bathCeramicService.PasifDeleteBathCeramicAsyn(bathCeramic);
+
+            return RedirectToAction("Index", "BathCeramic", new { Area = "Admin" });
 
         }
         [HttpGet]

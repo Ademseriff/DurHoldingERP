@@ -4,6 +4,7 @@ using DurHoldingErp.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DurHoldingErp.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240123222435_mg99")]
+    partial class mg99
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -120,22 +122,22 @@ namespace DurHoldingErp.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("adccf5a7-7091-4cc6-b839-919fc36e782c"),
-                            BarcodeId = 7811,
+                            Id = new Guid("f1a8fb6d-0deb-40fc-bcb2-b4fef807e9e2"),
+                            BarcodeId = 4302,
                             ClosetAmount = "2000",
                             ClosetName = "Babel Rezervuarsız",
                             ClosetPrice = "6120",
-                            CreateTime = new DateTime(2024, 1, 24, 1, 46, 14, 785, DateTimeKind.Local).AddTicks(1423),
+                            CreateTime = new DateTime(2024, 1, 24, 1, 24, 35, 193, DateTimeKind.Local).AddTicks(8875),
                             IsDeleted = false
                         },
                         new
                         {
-                            Id = new Guid("070f5da2-e0a7-4e73-8895-8b5c38346d01"),
-                            BarcodeId = 3729,
+                            Id = new Guid("a95c7350-6ff8-4501-869f-4f3d6dbfb0d1"),
+                            BarcodeId = 6134,
                             ClosetAmount = "1500",
                             ClosetName = "Babel Rezervuar",
                             ClosetPrice = "6400",
-                            CreateTime = new DateTime(2024, 1, 24, 1, 46, 14, 785, DateTimeKind.Local).AddTicks(1511),
+                            CreateTime = new DateTime(2024, 1, 24, 1, 24, 35, 193, DateTimeKind.Local).AddTicks(9120),
                             IsDeleted = false
                         });
                 });
@@ -164,49 +166,49 @@ namespace DurHoldingErp.Data.Migrations
                         new
                         {
                             Id = new Guid("6dce8fd3-ebce-4669-80af-b74b75911ed6"),
-                            CreateTime = new DateTime(2024, 1, 24, 1, 46, 14, 785, DateTimeKind.Local).AddTicks(1983),
+                            CreateTime = new DateTime(2024, 1, 24, 1, 24, 35, 193, DateTimeKind.Local).AddTicks(9349),
                             DepartmentName = "yönetici",
                             IsDeleted = false
                         },
                         new
                         {
                             Id = new Guid("1c30332a-d7cc-4c29-abf9-b02bc87536eb"),
-                            CreateTime = new DateTime(2024, 1, 24, 1, 46, 14, 785, DateTimeKind.Local).AddTicks(1990),
+                            CreateTime = new DateTime(2024, 1, 24, 1, 24, 35, 193, DateTimeKind.Local).AddTicks(9353),
                             DepartmentName = "It",
                             IsDeleted = false
                         },
                         new
                         {
                             Id = new Guid("14b482fc-8374-40ef-9bad-53f369b30771"),
-                            CreateTime = new DateTime(2024, 1, 24, 1, 46, 14, 785, DateTimeKind.Local).AddTicks(1995),
+                            CreateTime = new DateTime(2024, 1, 24, 1, 24, 35, 193, DateTimeKind.Local).AddTicks(9360),
                             DepartmentName = "Ik",
                             IsDeleted = false
                         },
                         new
                         {
                             Id = new Guid("9b930dcd-fd15-43ce-be93-91c2b314a97f"),
-                            CreateTime = new DateTime(2024, 1, 24, 1, 46, 14, 785, DateTimeKind.Local).AddTicks(2000),
+                            CreateTime = new DateTime(2024, 1, 24, 1, 24, 35, 193, DateTimeKind.Local).AddTicks(9363),
                             DepartmentName = "Security",
                             IsDeleted = false
                         },
                         new
                         {
                             Id = new Guid("b2ecb1dd-6c51-4bd6-862d-61df780de333"),
-                            CreateTime = new DateTime(2024, 1, 24, 1, 46, 14, 785, DateTimeKind.Local).AddTicks(2005),
+                            CreateTime = new DateTime(2024, 1, 24, 1, 24, 35, 193, DateTimeKind.Local).AddTicks(9366),
                             DepartmentName = "Driver",
                             IsDeleted = false
                         },
                         new
                         {
                             Id = new Guid("173bf7c5-9f43-4f2a-afbd-f2a6e15b4d41"),
-                            CreateTime = new DateTime(2024, 1, 24, 1, 46, 14, 785, DateTimeKind.Local).AddTicks(2010),
+                            CreateTime = new DateTime(2024, 1, 24, 1, 24, 35, 193, DateTimeKind.Local).AddTicks(9369),
                             DepartmentName = "Worker",
                             IsDeleted = false
                         },
                         new
                         {
                             Id = new Guid("65dcc325-b971-4979-ad4c-52fe91509d5a"),
-                            CreateTime = new DateTime(2024, 1, 24, 1, 46, 14, 785, DateTimeKind.Local).AddTicks(2015),
+                            CreateTime = new DateTime(2024, 1, 24, 1, 24, 35, 193, DateTimeKind.Local).AddTicks(9371),
                             DepartmentName = "CEO or Deputy ceo",
                             IsDeleted = false
                         });
@@ -261,7 +263,7 @@ namespace DurHoldingErp.Data.Migrations
                         {
                             Id = new Guid("6dce8fd3-ebce-4669-80af-b74b75911ed8"),
                             Age = 24,
-                            CreateTime = new DateTime(2024, 1, 24, 1, 46, 14, 785, DateTimeKind.Local).AddTicks(3457),
+                            CreateTime = new DateTime(2024, 1, 24, 1, 24, 35, 194, DateTimeKind.Local).AddTicks(214),
                             DepartmentId = new Guid("6dce8fd3-ebce-4669-80af-b74b75911ed6"),
                             IsDeleted = false,
                             Name = "Adem Şerif",
@@ -349,12 +351,12 @@ namespace DurHoldingErp.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("d492af54-f30a-462c-9aa8-463ed8bf1c60"),
-                            BarcodeId = 4325,
+                            Id = new Guid("66eb2f6d-5368-41a8-90ec-9a15392d0169"),
+                            BarcodeId = 5907,
                             CeramicAmount = "400",
                             CeramicName = "xx02",
                             CeramicPrice = "3200",
-                            CreateTime = new DateTime(2024, 1, 24, 1, 46, 14, 785, DateTimeKind.Local).AddTicks(3745),
+                            CreateTime = new DateTime(2024, 1, 24, 1, 24, 35, 194, DateTimeKind.Local).AddTicks(372),
                             IsDeleted = false
                         });
                 });
@@ -430,22 +432,22 @@ namespace DurHoldingErp.Data.Migrations
                         new
                         {
                             Id = new Guid("242dd5ef-f646-4bbe-9274-6fbb6a26331b"),
-                            CreateTime = new DateTime(2024, 1, 24, 1, 46, 14, 785, DateTimeKind.Local).AddTicks(4486),
+                            CreateTime = new DateTime(2024, 1, 24, 1, 24, 35, 194, DateTimeKind.Local).AddTicks(721),
                             Email = "ademserifd@gmail.com",
                             IsDeleted = false,
-                            Name = "Adem",
-                            Password = "123456",
-                            Role = "SüperAdmin"
+                            Name = "Admin",
+                            Password = "168317",
+                            Role = "Admin"
                         },
                         new
                         {
                             Id = new Guid("242dd5ef-f646-4bbe-9274-6fbb6a26981b"),
-                            CreateTime = new DateTime(2024, 1, 24, 1, 46, 14, 785, DateTimeKind.Local).AddTicks(4500),
+                            CreateTime = new DateTime(2024, 1, 24, 1, 24, 35, 194, DateTimeKind.Local).AddTicks(729),
                             Email = "ademserifd@gmail.com",
                             IsDeleted = false,
-                            Name = "Kerem",
-                            Password = "123456",
-                            Role = "Admin"
+                            Name = "SüperAdmin",
+                            Password = "168317",
+                            Role = "SüperAdmin"
                         });
                 });
 

@@ -40,7 +40,8 @@ namespace DurHoldingErp.Web.Areas.Admin.Controllers
                 try
                 {
                     var user = await usersService.GetUserAsync(userLoginDto.Name);
-                    if (user != null)
+                    
+                    if (user != null && user.Password == userLoginDto.Password && user.Email == userLoginDto.Email)
                     {
                         if (user.Role.Equals("SüperAdmin"))
                         {

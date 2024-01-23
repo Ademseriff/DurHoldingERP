@@ -14,5 +14,6 @@ namespace DurHoldingErp.Service.Services.Abstractions
         Task<Users> GetUserAsync(string Email);
 
         Task AddUserAsyn(Users user);
+        Task DeleteUsercAsyn(Users user);
     }
 }

@@ -38,6 +38,17 @@ namespace DurHoldingErp.Web.Areas.Admin.Controllers
            
         }
 
+        [HttpPost]
+        public async Task<IActionResult> PasifDeleteInvoice(Invoice ınvoice)
+        {
+
+            await ınvoiceService.PasifDeleteInvoiceAsyn(ınvoice);
+
+            return RedirectToAction("Index", "Invoice", new { Area = "Admin" });
+
+
+        }
+
         [HttpGet]
         public ActionResult InvoiceAdd()
         {

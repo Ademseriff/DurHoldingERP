@@ -18,6 +18,8 @@ namespace DurHoldingErp.Service.Services.Abstractions
         Task DeleteClosetAsyn(Closet closet);
         Task<Closet> GetClosetAsyn(Closet closet);
 
+        Task PasifDeleteClosetAsyn(Closet closet);
+
 
     }
 }

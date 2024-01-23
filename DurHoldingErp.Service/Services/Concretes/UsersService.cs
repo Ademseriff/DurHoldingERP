@@ -41,5 +41,11 @@ namespace DurHoldingErp.Service.Services.Concretes
             await unitOfWork.GetRepository<Users>().AddAsyn(user);
         }
 
+        public async Task DeleteUsercAsyn(Users user)
+        {
+
+            await unitOfWork.GetRepository<Users>().DeleteAsyn(user);
+        }
+
     }
 }

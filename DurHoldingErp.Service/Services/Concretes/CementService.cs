@@ -32,6 +32,11 @@ namespace DurHoldingErp.Service.Services.Concretes
 
             await unitOfWork.GetRepository<Cement>().DeleteAsyn(cement);
         }
+        public async Task PasifDeleteCementAsyn(Cement cement)
+        {
+            cement.IsDeleted = true;
+            await unitOfWork.GetRepository<Cement>().UpdateAsyn(cement);
+        }
         public async Task UpdateAmount(UpdateDto updateDto)
         {
             try

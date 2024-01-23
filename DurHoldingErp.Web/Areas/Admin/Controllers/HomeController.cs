@@ -1,5 +1,6 @@
 ﻿using DurHoldingErp.Entity.Entities;
 using DurHoldingErp.Service.Services.Abstractions;
+using DurHoldingErp.Service.Services.Concretes;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -14,7 +15,7 @@ namespace DurHoldingErp.Web.Areas.Admin.Controllers
 
         public HomeController(IUsersService UsersService,IEmployeeService employeeService)
         {
-            usersService = UsersService;
+            this.usersService = UsersService;
             this.employeeService = employeeService;
         }
         
@@ -23,6 +24,27 @@ namespace DurHoldingErp.Web.Areas.Admin.Controllers
             var users = await usersService.GetUsersAsync();
             ViewBag.Users = users;
             return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> DeleteUser(Users user)
+        {
+
+            await usersService.DeleteUsercAsyn(user);
+
+            return RedirectToAction("Index", "Home", new { Area = "Admin" });
+
+
+        }
+        [HttpPost]
+        public async Task<IActionResult> PasifDeleteEmployee(Employee employee)
+        {
+
+            await employeeService.PasifDeleteEmployeeAsyn(employee);
+
+            return RedirectToAction("employee", "Home", new { Area = "Admin" });
+
+
         }
         [HttpPost]
         public async Task<IActionResult> AdminAdd(Users user)

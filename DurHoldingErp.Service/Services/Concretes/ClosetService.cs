@@ -38,6 +38,11 @@ namespace DurHoldingErp.Service.Services.Concretes
            
             await unitOfWork.GetRepository<Closet>().DeleteAsyn(closet);
         }
+        public async Task PasifDeleteClosetAsyn(Closet closet)
+        {
+            closet.IsDeleted = true;
+            await unitOfWork.GetRepository<Closet>().UpdateAsyn(closet);
+        }
 
         public async Task UpdateAmount(UpdateDto closetUpdateDto)
         {

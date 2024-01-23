@@ -35,6 +35,16 @@ namespace DurHoldingErp.Web.Areas.Admin.Controllers
 
 
         }
+        [HttpPost]
+        public async Task<IActionResult> PsifDeleteCement(Cement cement)
+        {
+
+            await cementService.PasifDeleteCementAsyn(cement);
+
+            return RedirectToAction("Index", "Cement", new { Area = "Admin" });
+
+
+        }
 
         [HttpGet]
         public ActionResult CementAdd()

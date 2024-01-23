@@ -36,6 +36,11 @@ namespace DurHoldingErp.Service.Services.Concretes
             }
            
         }
+        public async Task PasifDeleteEmployeeAsyn(Employee employee)
+        {
+            employee.IsDeleted = true;
+            await unitOfWork.GetRepository<Employee>().UpdateAsyn(employee);
+        }
 
         public async Task AddUserAsyn(Employee employee)
         {

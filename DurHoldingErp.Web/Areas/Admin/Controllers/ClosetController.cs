@@ -37,6 +37,16 @@ namespace DurHoldingErp.Web.Areas.Admin.Controllers
 
 
         }
+        [HttpPost]
+        public async Task<IActionResult> PasifDeleteCloset(Closet closet)
+        {
+
+            await closetService.PasifDeleteClosetAsyn(closet);
+
+            return RedirectToAction("Index", "Closet", new { Area = "Admin" });
+
+
+        }
         [HttpGet]
         public  ActionResult ClosetAdd()
         {

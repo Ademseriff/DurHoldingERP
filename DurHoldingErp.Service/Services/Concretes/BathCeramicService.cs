@@ -36,6 +36,12 @@ namespace DurHoldingErp.Service.Services.Concretes
 
             await unitOfWork.GetRepository<BathCeramic>().DeleteAsyn(bathCeramic);
         }
+        public async Task PasifDeleteBathCeramicAsyn(BathCeramic bathCeramic)
+        {
+            bathCeramic.IsDeleted = true;
+            await unitOfWork.GetRepository<BathCeramic>().UpdateAsyn(bathCeramic);
+        }
+
         public async Task UpdateAmount(UpdateDto updateDto)
         {
             try
