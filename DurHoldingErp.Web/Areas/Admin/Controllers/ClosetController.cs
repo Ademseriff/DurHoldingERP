@@ -54,13 +54,7 @@ namespace DurHoldingErp.Web.Areas.Admin.Controllers
             return View();
 
         }
-        //[HttpPost]
-        //public  IActionResult ClosetAdd(Closet closet)
-        //{
-
        
-
-        //}
         [HttpPost]
         public async Task<IActionResult> ClosetAdd(Closet closet)
         {

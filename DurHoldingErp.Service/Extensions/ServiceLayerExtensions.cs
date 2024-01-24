@@ -33,7 +33,7 @@ namespace DurHoldingErp.Service.Extensions
             services.AddScoped<ISiliconService, SiliconService>();
             services.AddScoped<IInvoiceService, InvoiceService>();
             services.AddScoped<IMailService, MailService>();
-
+           
             return services;
         }
     }
