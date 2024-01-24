@@ -33,17 +33,21 @@
         <tbody>
             @foreach (var x in closet)
             {
-                <tr>
-                    <td>@x.BarcodeId
-                    <td>
-                    <td>@x.ClosetName
-                    <td>
-                    <td>@x.ClosetPrice
-                    <td>
-                    <td>@x.ClosetAmount</td>
+                if (x.IsDeleted==false)
+                {
+                    <tr>
+                        <td>@x.BarcodeId
+                        <td>
+                        <td>@x.ClosetName
+                        <td>
+                        <td>@x.ClosetPrice
+                        <td>
+                        <td>@x.ClosetAmount</td>
 
 
-                </tr>
+                    </tr>
+                }
+                
             }
 
         </tbody>

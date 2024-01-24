@@ -33,17 +33,21 @@
         <tbody>
             @foreach (var x in cement)
             {
-                <tr>
-                    <td>@x.BarcodeId
-                    <td>
-                    <td>@x.CementName
-                    <td>
-                    <td>@x.CementPrice
-                    <td>
-                    <td>@x.CementAmount</td>
+                @if (x.IsDeleted==false)
+                {
+                    <tr>
+                        <td>@x.BarcodeId
+                        <td>
+                        <td>@x.CementName
+                        <td>
+                        <td>@x.CementPrice
+                        <td>
+                        <td>@x.CementAmount</td>
 
 
-                </tr>
+                    </tr>
+                }
+             
             }
 
         </tbody>

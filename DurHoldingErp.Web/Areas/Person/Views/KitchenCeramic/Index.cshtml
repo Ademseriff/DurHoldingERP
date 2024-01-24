@@ -32,18 +32,22 @@
         <tbody>
             @foreach (var kullanıcı in KitchenCeramic)
             {
-                <tr>
+                @if (kullanıcı.IsDeleted==false)
+                {
+                    <tr>
 
-                    <td>@kullanıcı.BarcodeId
-                    <td>
-                    <td>@kullanıcı.CeramicName
-                    <td>
-                    <td>@kullanıcı.CeramicPrice</td>
+                        <td>@kullanıcı.BarcodeId
+                        <td>
+                        <td>@kullanıcı.CeramicName
+                        <td>
+                        <td>@kullanıcı.CeramicPrice</td>
 
-                    <td>@kullanıcı.CeramicAmount</td>
+                        <td>@kullanıcı.CeramicAmount</td>
 
 
-                </tr>
+                    </tr>
+                }
+              
             }
 
         </tbody>

@@ -34,17 +34,21 @@
         <tbody>
             @foreach (var x in silicon)
             {
-                <tr>
-                    <td>@x.BarcodeId
-                    <td>
-                    <td>@x.SiliconName
-                    <td>
-                    <td>@x.SiliconPrice
-                    <td>
-                    <td>@x.SiliconAmount</td>
+                @if (x.IsDeleted==false)
+                {
+                    <tr>
+                        <td>@x.BarcodeId
+                        <td>
+                        <td>@x.SiliconName
+                        <td>
+                        <td>@x.SiliconPrice
+                        <td>
+                        <td>@x.SiliconAmount</td>
 
 
-                </tr>
+                    </tr>
+                }
+             
             }
 
         </tbody>
