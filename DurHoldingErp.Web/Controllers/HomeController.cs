@@ -26,6 +26,12 @@ namespace DurHoldingErp.Web.Controllers
             return View();
         }
 
+        public async Task<IActionResult> AboutProject()
+        {
+
+            return View();
+        }
+
         public IActionResult Privacy()
         {
             return View();

@@ -5,10 +5,12 @@ namespace DurHoldingErp.Web.Areas.Person.Controllers
 {
     public class HomeController : Controller
     {
+        public static string icerik;
         [Area("Person")]
         [Authorize]
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
+           
             return View();
         }
     }
