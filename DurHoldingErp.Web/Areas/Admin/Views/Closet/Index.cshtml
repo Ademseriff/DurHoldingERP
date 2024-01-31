@@ -1,0 +1,84 @@
+﻿@model Closet
+@{
+    List <Closet> closet = ViewBag.Closets;
+}
+
+
+
+<style>
+    .custom-margin {
+        text-align: center
+    }
+</style>
+
+<div class="container mt-4">
+    <h2 class="container custom-margin"> Closets </h2>
+    <br />
+    <br />
+    <table class="table table-dark">
+        <thead>
+            <tr>
+
+                <th scope="auto">Barkod</th>
+                <th></th>
+
+                <th scope="auto">Closet Name</th>
+
+                
+                <th></th>
+               
+                <th scope="auto">Closet Price $</th>
+                <th></th>
+                <th scope="auto">Closet Amount</th>
+                <th scope="auto">HARD DELETE</th>
+                <th scope="auto">SOFT DELETE</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var x in closet)
+            {
+                @if (x.IsDeleted == false)
+                {
+                    <tr>
+                        <td>@x.BarcodeId
+                        <td>
+                        <td>@x.ClosetName
+                        <td>
+                        <td>@x.ClosetPrice
+                        <td>
+                        <td>@x.ClosetAmount</td>
+                        <td>
+                            <form method="post" asp-action="DeleteCloset" asp-area="Admin" asp-controller="Closet">
+                                <input asp-for="Id" type="hidden" name="Id" value="@x.Id" />
+                                <input asp-for="BarcodeId" type="hidden" name="BarcodeId" value="@x.BarcodeId" />
+                                <input asp-for="ClosetPrice" type="hidden" name="ClosetPrice" value="@x.ClosetPrice" />
+                                <input asp-for="ClosetAmount" type="hidden" name="ClosetAmount" value="@x.ClosetAmount" />
+                                <input asp-for="ClosetName" type="hidden" name="ClosetName" value="@x.ClosetName" />
+                                <input asp-for="CreateTime" type="hidden" name="CreateTime" value="@x.CreateTime" />
+                                <input asp-for="IsDeleted" type="hidden" name="IsDeleted" value="@x.IsDeleted" />
+                                <button type="submit" style="color: black; background-color: red;">HARD DELETE</button>
+                            </form>
+                        </td>
+
+                        <td>
+                            <form method="post" asp-action="PasifDeleteCloset" asp-area="Admin" asp-controller="Closet">
+                                <input asp-for="Id" type="hidden" name="Id" value="@x.Id" />
+                                <input asp-for="BarcodeId" type="hidden" name="BarcodeId" value="@x.BarcodeId" />
+                                <input asp-for="ClosetPrice" type="hidden" name="ClosetPrice" value="@x.ClosetPrice" />
+                                <input asp-for="ClosetAmount" type="hidden" name="ClosetAmount" value="@x.ClosetAmount" />
+                                <input asp-for="ClosetName" type="hidden" name="ClosetName" value="@x.ClosetName" />
+                                <input asp-for="CreateTime" type="hidden" name="CreateTime" value="@x.CreateTime" />
+                                <input asp-for="IsDeleted" type="hidden" name="IsDeleted" value="@x.IsDeleted" />
+                                <button type="submit" style="color:black;background-color:yellow"> SOFT DELETE</button>
+                            </form>
+                        </td>
+
+                    </tr>
+                }
+          
+            }
+
+        </tbody>
+    </table>
+</div>
+

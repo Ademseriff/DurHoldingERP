@@ -1,0 +1,55 @@
+﻿@{
+    List<Closet> closet = ViewBag.Closets;
+}
+
+<style>
+    .custom-margin {
+        text-align: center
+    }
+</style>
+
+<div class="container mt-4">
+    <h2 class="container custom-margin"> Closets </h2>
+    <br />
+    <br />
+    <table class="table table-dark">
+        <thead>
+            <tr>
+
+                <th scope="auto">Barkod</th>
+                <th></th>
+
+                <th scope="auto">Closet Name</th>
+
+
+                <th></th>
+
+                <th scope="auto">Closet Price $</th>
+                <th></th>
+                <th scope="auto">Closet Amount</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var x in closet)
+            {
+                if (x.IsDeleted==false)
+                {
+                    <tr>
+                        <td>@x.BarcodeId
+                        <td>
+                        <td>@x.ClosetName
+                        <td>
+                        <td>@x.ClosetPrice
+                        <td>
+                        <td>@x.ClosetAmount</td>
+
+
+                    </tr>
+                }
+                
+            }
+
+        </tbody>
+    </table>
+</div>

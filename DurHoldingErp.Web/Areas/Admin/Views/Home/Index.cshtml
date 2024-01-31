@@ -1,20 +1,145 @@
-﻿@model List<Employee>
+﻿@model Users
 @{
     ViewData["Title"] = "admin page";
+    List<Users> myUsers = ViewBag.Users;
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
-
-<div>
-    @foreach (var employee in Model)
-    {
-        <h2>@employee.Name</h2> <br />
-        <h2>@employee.Age</h2>
-
-        <br />
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
     }
 
+    button {
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        background-color: #007BFF;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+    }
+
+    .custom-margin {
+        text-align: center
+    }
+
+    button:hover {
+        background-color: #0056b3;
+    }
+
+    .alert-container {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 20px;
+        background-color: #f8d7da;
+        border: 1px solid #f5c6cb;
+        border-radius: 5px;
+        color: #721c24;
+    }
+
+        .alert-container.show {
+            display: block;
+        }
+</style>
+
+<div class="container mt-4">
+
+ <h2 class="container custom-margin">Adminler</h2>
+<table class="table table-dark">
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col"></th>
+            <th scope="col">Email</th>
+            <th scope="col">Password</th>
+            <th scope="col">Role</th>
+            <th scope="col">CreateTime</th>
+            <th scope="col">HARD DELETE</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var kullanıcı in myUsers)
+        {
+            <tr>
+
+                <td>@kullanıcı.Name<td>
+                <td>@kullanıcı.Email</td>
+                <td>@kullanıcı.Password</td>
+                <td>@kullanıcı.Role</td>
+                <td>@kullanıcı.CreateTime</td>
+                    <td>
+                        <form method="post" asp-action="DeleteUser" asp-area="Admin" asp-controller="Home">
+                            <input asp-for="Id" type="hidden" name="Id" value="@kullanıcı.Id" />
+                            <input asp-for="Name" type="hidden" name="Name" value="@kullanıcı.Name" />
+                            <input asp-for="Email" type="hidden" name="Email" value="@kullanıcı.Email" />
+                            <input asp-for="Password" type="hidden" name="Password" value="@kullanıcı.Password" />
+                            <input asp-for="Role" type="hidden" name="Role" value="@kullanıcı.Role" />
+                            <input asp-for="CreateTime" type="hidden" name="CreateTime" value="@kullanıcı.CreateTime" />
+                            <input asp-for="IsDeleted" type="hidden" name="IsDeleted" value="@kullanıcı.IsDeleted" />
+
+                            <button type="submit" style="color: black; background-color: red;">DELETE</button>
+
+                        </form>
+                    </td>
+            </tr>
+        }
+       
+    </tbody>
+</table>
+
 </div>
+<div class="container mt-4">
+<h3 class="container custom-margin">Admin EKLE</h3>
+<form asp-action="AdminAdd" asp-controller="Home" asp-area="Admin" method="post" target="_self">
+    <div class="form-group" class="m">
+        <label asp-for="Name">Name</label>
+        <input asp-for="Name"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Name">
+       
+    </div>
+    <div class="form-group">
+        <label asp-for="Email">Email address</label>
+        <input asp-for="Email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+        
+    </div>
+    <div class="form-group">
+        <label asp-for="Password" for="exampleInputPassword1">Password</label>
+        <input asp-for="Password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+    </div>
+
+    <div class="form-group">
+        <label for="exampleFormControlSelect1">Role</label>
+        <select asp-for="Role" class="form-control" id="exampleFormControlSelect1">
+            <option value="SüperAdmin">SüperAdmin</option>
+            <option value="Admin"> Admin</option>
+        </select>
+        <br />
+        <br />
+            <button type="submit" class="btn btn-primary" style="display: block; margin: 0 auto;" onclick="showAlert()">ADD</button>
+</form>
+</div>
+
+<div id="alert" class="alert-container">
+    <p>Admin Eklendi</p>
+    <button onclick="hideAlert()">Tamam</button>
+</div>
+
+
+<script>
+    function showAlert() {
+        var alertContainer = document.getElementById('alert');
+        alertContainer.classList.add('show');
+    }
+
+    function hideAlert() {
+        var alertContainer = document.getElementById('alert');
+        alertContainer.classList.remove('show');
+    }
+</script>

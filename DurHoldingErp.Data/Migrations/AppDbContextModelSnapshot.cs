@@ -22,6 +22,124 @@ namespace DurHoldingErp.Data.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
+            modelBuilder.Entity("DurHoldingErp.Entity.Entities.BathCeramic", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("BarcodeId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("CeramicAmount")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CeramicName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CeramicPrice")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool?>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("bathCeramics");
+                });
+
+            modelBuilder.Entity("DurHoldingErp.Entity.Entities.Cement", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("BarcodeId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("CementAmount")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CementName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CementPrice")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool?>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("cements");
+                });
+
+            modelBuilder.Entity("DurHoldingErp.Entity.Entities.Closet", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("BarcodeId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ClosetAmount")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ClosetName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ClosetPrice")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool?>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("closets");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("adccf5a7-7091-4cc6-b839-919fc36e782c"),
+                            BarcodeId = 7811,
+                            ClosetAmount = "2000",
+                            ClosetName = "Babel Rezervuarsız",
+                            ClosetPrice = "6120",
+                            CreateTime = new DateTime(2024, 1, 24, 1, 46, 14, 785, DateTimeKind.Local).AddTicks(1423),
+                            IsDeleted = false
+                        },
+                        new
+                        {
+                            Id = new Guid("070f5da2-e0a7-4e73-8895-8b5c38346d01"),
+                            BarcodeId = 3729,
+                            ClosetAmount = "1500",
+                            ClosetName = "Babel Rezervuar",
+                            ClosetPrice = "6400",
+                            CreateTime = new DateTime(2024, 1, 24, 1, 46, 14, 785, DateTimeKind.Local).AddTicks(1511),
+                            IsDeleted = false
+                        });
+                });
+
             modelBuilder.Entity("DurHoldingErp.Entity.Entities.Department", b =>
                 {
                     b.Property<Guid>("Id")
@@ -46,8 +164,50 @@ namespace DurHoldingErp.Data.Migrations
                         new
                         {
                             Id = new Guid("6dce8fd3-ebce-4669-80af-b74b75911ed6"),
-                            CreateTime = new DateTime(2024, 1, 3, 19, 7, 40, 720, DateTimeKind.Local).AddTicks(9196),
+                            CreateTime = new DateTime(2024, 1, 24, 1, 46, 14, 785, DateTimeKind.Local).AddTicks(1983),
                             DepartmentName = "yönetici",
+                            IsDeleted = false
+                        },
+                        new
+                        {
+                            Id = new Guid("1c30332a-d7cc-4c29-abf9-b02bc87536eb"),
+                            CreateTime = new DateTime(2024, 1, 24, 1, 46, 14, 785, DateTimeKind.Local).AddTicks(1990),
+                            DepartmentName = "It",
+                            IsDeleted = false
+                        },
+                        new
+                        {
+                            Id = new Guid("14b482fc-8374-40ef-9bad-53f369b30771"),
+                            CreateTime = new DateTime(2024, 1, 24, 1, 46, 14, 785, DateTimeKind.Local).AddTicks(1995),
+                            DepartmentName = "Ik",
+                            IsDeleted = false
+                        },
+                        new
+                        {
+                            Id = new Guid("9b930dcd-fd15-43ce-be93-91c2b314a97f"),
+                            CreateTime = new DateTime(2024, 1, 24, 1, 46, 14, 785, DateTimeKind.Local).AddTicks(2000),
+                            DepartmentName = "Security",
+                            IsDeleted = false
+                        },
+                        new
+                        {
+                            Id = new Guid("b2ecb1dd-6c51-4bd6-862d-61df780de333"),
+                            CreateTime = new DateTime(2024, 1, 24, 1, 46, 14, 785, DateTimeKind.Local).AddTicks(2005),
+                            DepartmentName = "Driver",
+                            IsDeleted = false
+                        },
+                        new
+                        {
+                            Id = new Guid("173bf7c5-9f43-4f2a-afbd-f2a6e15b4d41"),
+                            CreateTime = new DateTime(2024, 1, 24, 1, 46, 14, 785, DateTimeKind.Local).AddTicks(2010),
+                            DepartmentName = "Worker",
+                            IsDeleted = false
+                        },
+                        new
+                        {
+                            Id = new Guid("65dcc325-b971-4979-ad4c-52fe91509d5a"),
+                            CreateTime = new DateTime(2024, 1, 24, 1, 46, 14, 785, DateTimeKind.Local).AddTicks(2015),
+                            DepartmentName = "CEO or Deputy ceo",
                             IsDeleted = false
                         });
                 });
@@ -67,6 +227,9 @@ namespace DurHoldingErp.Data.Migrations
                     b.Property<Guid>("DepartmentId")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<bool?>("IsDeleted")
                         .HasColumnType("bit");
 
@@ -76,6 +239,12 @@ namespace DurHoldingErp.Data.Migrations
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)")
                         .HasDefaultValue("NULL");
+
+                    b.Property<string>("Password")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Sallary")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Surname")
                         .IsRequired()
@@ -92,11 +261,191 @@ namespace DurHoldingErp.Data.Migrations
                         {
                             Id = new Guid("6dce8fd3-ebce-4669-80af-b74b75911ed8"),
                             Age = 24,
-                            CreateTime = new DateTime(2024, 1, 3, 19, 7, 40, 721, DateTimeKind.Local).AddTicks(1291),
+                            CreateTime = new DateTime(2024, 1, 24, 1, 46, 14, 785, DateTimeKind.Local).AddTicks(3457),
                             DepartmentId = new Guid("6dce8fd3-ebce-4669-80af-b74b75911ed6"),
                             IsDeleted = false,
                             Name = "Adem Şerif",
                             Surname = "Dur"
+                        });
+                });
+
+            modelBuilder.Entity("DurHoldingErp.Entity.Entities.Invoice", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Amount")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("BarcodeId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("EMail")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("InvoiceNumber")
+                        .HasColumnType("int");
+
+                    b.Property<bool?>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Piece")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Product")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ReceiverInformations")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SellerInformation")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("invoices");
+                });
+
+            modelBuilder.Entity("DurHoldingErp.Entity.Entities.KitchenCeramic", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("BarcodeId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("CeramicAmount")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CeramicName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CeramicPrice")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool?>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("kitchenCeramics");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("d492af54-f30a-462c-9aa8-463ed8bf1c60"),
+                            BarcodeId = 4325,
+                            CeramicAmount = "400",
+                            CeramicName = "xx02",
+                            CeramicPrice = "3200",
+                            CreateTime = new DateTime(2024, 1, 24, 1, 46, 14, 785, DateTimeKind.Local).AddTicks(3745),
+                            IsDeleted = false
+                        });
+                });
+
+            modelBuilder.Entity("DurHoldingErp.Entity.Entities.Silicon", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("BarcodeId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool?>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("SiliconAmount")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SiliconName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SiliconPrice")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("silicons");
+                });
+
+            modelBuilder.Entity("DurHoldingErp.Entity.Entities.Users", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<bool?>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("Role")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("users");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("242dd5ef-f646-4bbe-9274-6fbb6a26331b"),
+                            CreateTime = new DateTime(2024, 1, 24, 1, 46, 14, 785, DateTimeKind.Local).AddTicks(4486),
+                            Email = "ademserifd@gmail.com",
+                            IsDeleted = false,
+                            Name = "Adem",
+                            Password = "123456",
+                            Role = "SüperAdmin"
+                        },
+                        new
+                        {
+                            Id = new Guid("242dd5ef-f646-4bbe-9274-6fbb6a26981b"),
+                            CreateTime = new DateTime(2024, 1, 24, 1, 46, 14, 785, DateTimeKind.Local).AddTicks(4500),
+                            Email = "ademserifd@gmail.com",
+                            IsDeleted = false,
+                            Name = "Kerem",
+                            Password = "123456",
+                            Role = "Admin"
                         });
                 });
 

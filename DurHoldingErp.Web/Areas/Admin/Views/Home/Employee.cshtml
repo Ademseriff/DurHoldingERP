@@ -1,0 +1,150 @@
+﻿@model Employee
+@{
+    ViewData["Title"] = "admin page";
+    List<Employee> myEmployee = ViewBag.Employees;
+
+    string DepartmanName(Guid guid)
+    {
+        string id = guid.ToString();
+        string deneme = "14B482FC-8374-40EF-9BAD-53F369B30771";
+
+        if (id.Equals("6DCE8FD3-EBCE-4669-80AF-B74B75911ED6", StringComparison.OrdinalIgnoreCase))
+        {
+            return "Manager";
+        }
+        else if (id.Equals("1C30332A-D7CC-4C29-ABF9-B02BC87536EB", StringComparison.OrdinalIgnoreCase))
+        {
+            return "It";
+        }
+        else if (id.Equals("14B482FC-8374-40EF-9BAD-53F369B30771", StringComparison.OrdinalIgnoreCase))
+        {
+            return "IK";
+        }
+        else if (id.Equals("9B930DCD-FD15-43CE-BE93-91C2B314A97F", StringComparison.OrdinalIgnoreCase))
+        {
+            return "Security";
+        }
+        else if (id.Equals("B2ECB1DD-6C51-4BD6-862D-61DF780DE333", StringComparison.OrdinalIgnoreCase))
+        {
+            return "Driver";
+        }
+
+        else if (id.Equals("173BF7C5-9F43-4F2A-AFBD-F2A6E15B4D41", StringComparison.OrdinalIgnoreCase))
+        {
+            return "Worker";
+        }
+
+        else if (id.Equals("65DCC325 - B971 - 4979 - AD4C - 52FE91509D5A", StringComparison.OrdinalIgnoreCase))
+        {
+            return "CEO or Deputy ceo";
+        }
+        else
+        {
+            return "null";
+        }
+
+
+        // switch(id){
+
+        //     case "6DCE8FD3-EBCE-4669-80AF-B74B75911ED6":
+        //         return "Manager";
+        //         break;
+
+        //     case "1C30332A-D7CC-4C29-ABF9-B02BC87536EB":
+        //         return "It";
+        //         break;
+
+        //     case "14B482FC-8374-40EF-9BAD-53F369B30771":
+        //         return "Ik";
+        //         break;
+
+        //     case "9B930DCD-FD15-43CE-BE93-91C2B314A97F":
+        //         return "Security";
+
+        //     case "B2ECB1DD-6C51-4BD6-862D-61DF780DE333":
+        //         return "Driver";
+        //         break;
+
+        //     case "173BF7C5-9F43-4F2A-AFBD-F2A6E15B4D41":
+        //         return "Worker";
+        //         break;
+
+        //     case "65DCC325 - B971 - 4979 - AD4C - 52FE91509D5A":
+        //         return "CEO or Deputy ceo";
+        //         break;
+
+        //     default:
+        //         return "EMPTY";
+        //        break;
+
+        // }
+       
+    }
+}
+
+<style>
+    .custom-margin {
+        text-align: center
+    }
+</style>
+
+<div class="container mt-4">
+    <h2 class="container custom-margin" > Çalışanlar </h2>
+    <br />
+    <br />
+    <table class="table table-dark">
+        <thead>
+            <tr>
+               
+                <th scope="col">Name</th>
+                <th ></th>
+               
+                <th>Surname</th>
+               
+                <th></th>
+                <th></th>
+                <th scope="col">Sallary</th>
+                <th scope="col">Departman</th>
+                <th scope="col">CreateTime</th>
+                <th scope="col">SOFT DELETE</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var kullanıcı in myEmployee)
+            {
+                @if (kullanıcı.IsDeleted==false)
+                {
+                    <tr>
+
+                        <td>@kullanıcı.Name
+                        <td>
+                        <td>@kullanıcı.Surname
+                        <td>
+                        <td>@kullanıcı.Email</td>
+                        <td>@kullanıcı.Sallary</td>
+                        <td>@DepartmanName(kullanıcı.DepartmentId)</td>
+                        <td>@kullanıcı.CreateTime</td>
+                        <td>
+                            <form method="post" asp-action="PasifDeleteEmployee" asp-area="Admin" asp-controller="Home">
+                                <input asp-for="Id" type="hidden" name="Id" value="@kullanıcı.Id" />
+                                <input asp-for="Name" type="hidden" name="Name" value="@kullanıcı.Name" />
+                                <input asp-for="Surname" type="hidden" name="Surname" value="@kullanıcı.Surname" />
+                                <input asp-for="Email" type="hidden" name="Email" value="@kullanıcı.Email" />
+                                <input asp-for="Sallary" type="hidden" name="Sallary" value="@kullanıcı.Sallary" />
+                                <input asp-for="DepartmentId" type="hidden" name="DepartmentId" value="@kullanıcı.DepartmentId" />
+                                <input asp-for="CreateTime" type="hidden" name="CreateTime" value="@kullanıcı.CreateTime" />
+                                <input asp-for="IsDeleted" type="hidden" name="IsDeleted" value="@kullanıcı.IsDeleted" />
+                                <input asp-for="Age" type="hidden" name="Age" value="@kullanıcı.Age" />
+                                <button type="submit" style="color:black ; background-color:yellow;"> KOV</button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+           
+            }
+
+        </tbody>
+    </table>
+</div>
+
+

@@ -23,5 +23,30 @@ namespace DurHoldingErp.Service.Services.Concretes
         {
             return await unitOfWork.GetRepository<Employee>().GetAllAsyn();
         }
+
+        public async Task<Employee> GetEmployeeAsync(string Email)
+        {
+            try
+            {
+                return await unitOfWork.GetRepository<Employee>().GetAsyn(x => x.Email == Email);
+            }
+            catch
+            {
+                return null;
+            }
+           
+        }
+        public async Task PasifDeleteEmployeeAsyn(Employee employee)
+        {
+            employee.IsDeleted = true;
+            await unitOfWork.GetRepository<Employee>().UpdateAsyn(employee);
+        }
+
+        public async Task AddUserAsyn(Employee employee)
+        {
+            await unitOfWork.GetRepository<Employee>().AddAsyn(employee);
+        }
+
     }
 }
+

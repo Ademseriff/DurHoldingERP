@@ -1,0 +1,56 @@
+﻿@{
+    List<Silicon> silicon = ViewBag.silicons;
+}
+
+
+<style>
+    .custom-margin {
+        text-align: center
+    }
+</style>
+
+<div class="container mt-4">
+    <h2 class="container custom-margin"> Silicons </h2>
+    <br />
+    <br />
+    <table class="table table-dark">
+        <thead>
+            <tr>
+
+                <th scope="auto">Barkod</th>
+                <th></th>
+
+                <th scope="auto">Silicon Name</th>
+
+
+                <th></th>
+
+                <th scope="auto">Silicon Price $</th>
+                <th></th>
+                <th scope="auto">Silicon Amount</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var x in silicon)
+            {
+                @if (x.IsDeleted==false)
+                {
+                    <tr>
+                        <td>@x.BarcodeId
+                        <td>
+                        <td>@x.SiliconName
+                        <td>
+                        <td>@x.SiliconPrice
+                        <td>
+                        <td>@x.SiliconAmount</td>
+
+
+                    </tr>
+                }
+             
+            }
+
+        </tbody>
+    </table>
+</div>

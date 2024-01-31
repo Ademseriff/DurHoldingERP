@@ -1,0 +1,81 @@
+﻿@model Cement
+@{
+    List<Cement> cement = ViewBag.Cements;
+}
+
+<style>
+    .custom-margin {
+        text-align: center
+    }
+</style>
+
+<div class="container mt-4">
+    <h2 class="container custom-margin"> CEMENTS </h2>
+    <br />
+    <br />
+    <table class="table table-dark">
+        <thead>
+            <tr>
+
+                <th scope="auto">Barkod</th>
+                <th></th>
+
+                <th scope="auto">Cement Name</th>
+
+
+                <th></th>
+
+                <th scope="auto">Cement Price $</th>
+                <th></th>
+                <th scope="auto">Cement Amount</th>
+                <th scope="auto">HARD DELETE</th>
+                <th scope="auto">SOFT DELETE</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var x in cement)
+            {
+                @if (x.IsDeleted==false)
+                {
+                    <tr>
+                        <td>@x.BarcodeId
+                        <td>
+                        <td>@x.CementName
+                        <td>
+                        <td>@x.CementPrice
+                        <td>
+                        <td>@x.CementAmount</td>
+
+                        <td>
+                            <form method="post" asp-action="DeleteCement" asp-area="Admin" asp-controller="Cement">
+                                <input asp-for="Id" type="hidden" name="Id" value="@x.Id" />
+                                <input asp-for="BarcodeId" type="hidden" name="BarcodeId" value="@x.BarcodeId" />
+                                <input asp-for="CementPrice" type="hidden" name="CementPrice" value="@x.CementPrice" />
+                                <input asp-for="CementAmount" type="hidden" name="CementAmount" value="@x.CementAmount" />
+                                <input asp-for="CementName" type="hidden" name="CementName" value="@x.CementName" />
+                                <input asp-for="CreateTime" type="hidden" name="CreateTime" value="@x.CreateTime" />
+                                <input asp-for="IsDeleted" type="hidden" name="IsDeleted" value="@x.IsDeleted" />
+                                <button type="submit" style="color: black; background-color: red;">HARD DELETE</button>
+                            </form>
+                        </td>
+                        <td>
+                            <form method="post" asp-action="PsifDeleteCement" asp-area="Admin" asp-controller="Cement">
+                                <input asp-for="Id" type="hidden" name="Id" value="@x.Id" />
+                                <input asp-for="BarcodeId" type="hidden" name="BarcodeId" value="@x.BarcodeId" />
+                                <input asp-for="CementPrice" type="hidden" name="CementPrice" value="@x.CementPrice" />
+                                <input asp-for="CementAmount" type="hidden" name="CementAmount" value="@x.CementAmount" />
+                                <input asp-for="CementName" type="hidden" name="CementName" value="@x.CementName" />
+                                <input asp-for="CreateTime" type="hidden" name="CreateTime" value="@x.CreateTime" />
+                                <input asp-for="IsDeleted" type="hidden" name="IsDeleted" value="@x.IsDeleted" />
+                                <button type="submit" style="color:black;background-color:yellow">SOFT DELETE</button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+                
+            }
+
+        </tbody>
+    </table>
+</div>

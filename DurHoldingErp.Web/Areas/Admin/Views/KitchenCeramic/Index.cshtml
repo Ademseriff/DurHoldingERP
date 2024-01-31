@@ -1,0 +1,85 @@
+﻿@model KitchenCeramic
+@{
+    List<KitchenCeramic> KitchenCeramic = ViewBag.kitchenCeramics;
+}
+
+<style>
+    .custom-margin {
+        text-align: center
+    }
+</style>
+
+<div class="container mt-4">
+    <h2 class="container custom-margin"> Mutfak Seramikleri </h2>
+    <br />
+    <br />
+    <table class="table table-dark">
+        <thead>
+            <tr>
+
+                <th scope="col">BarcodeID</th>
+           
+                <th></th>
+                <th scope="col">Name</th>
+
+                <th></th>
+                <th scope="col">Price $</th>
+
+               
+                <th scope="col">Amount</th>
+                <th scope="col">HARD DELETE</th>
+                <th scope="col">SOFT DELETE</th>
+
+               
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var kullanıcı in KitchenCeramic)
+            {
+                @if (kullanıcı.IsDeleted==false)
+                {
+                    <tr>
+
+                        <td>@kullanıcı.BarcodeId
+                        <td>
+                        <td>@kullanıcı.CeramicName
+                        <td>
+                        <td>@kullanıcı.CeramicPrice</td>
+
+                        <td>@kullanıcı.CeramicAmount</td>
+
+                        <td>
+                            <form method="post" asp-action="DeleteKitchenCeramic" asp-area="Admin" asp-controller="KitchenCeramic">
+                                <input asp-for="Id" type="hidden" name="Id" value="@kullanıcı.Id" />
+                                <input asp-for="BarcodeId" type="hidden" name="BarcodeId" value="@kullanıcı.BarcodeId" />
+                                <input asp-for="CeramicPrice" type="hidden" name="CeramicPrice" value="@kullanıcı.CeramicPrice" />
+                                <input asp-for="CeramicAmount" type="hidden" name="CeramicAmount" value="@kullanıcı.CeramicAmount" />
+                                <input asp-for="CeramicName" type="hidden" name="CeramicName" value="@kullanıcı.CeramicName" />
+                                <input asp-for="CreateTime" type="hidden" name="CreateTime" value="@kullanıcı.CreateTime" />
+                                <input asp-for="IsDeleted" type="hidden" name="IsDeleted" value="@kullanıcı.IsDeleted" />
+                                <button type="submit" style="color: black; background-color: red;">HARD DELETE</button>
+                            </form>
+                        </td>
+
+
+                        <td>
+                            <form method="post" asp-action="PasifDeleteKitchenCeramic" asp-area="Admin" asp-controller="KitchenCeramic">
+                                <input asp-for="Id" type="hidden" name="Id" value="@kullanıcı.Id" />
+                                <input asp-for="BarcodeId" type="hidden" name="BarcodeId" value="@kullanıcı.BarcodeId" />
+                                <input asp-for="CeramicPrice" type="hidden" name="CeramicPrice" value="@kullanıcı.CeramicPrice" />
+                                <input asp-for="CeramicAmount" type="hidden" name="CeramicAmount" value="@kullanıcı.CeramicAmount" />
+                                <input asp-for="CeramicName" type="hidden" name="CeramicName" value="@kullanıcı.CeramicName" />
+                                <input asp-for="CreateTime" type="hidden" name="CreateTime" value="@kullanıcı.CreateTime" />
+                                <input asp-for="IsDeleted" type="hidden" name="IsDeleted" value="@kullanıcı.IsDeleted" />
+                                <button type="submit" style="color:black;background-color:yellow">SOFT DELETE</button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+           
+            }
+
+        </tbody>
+    </table>
+</div>
+

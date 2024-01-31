@@ -10,5 +10,10 @@ namespace DurHoldingErp.Service.Services.Abstractions
     public interface IEmployeeService
     {
         Task<List<Employee>> GetEmployeesAsync();
+
+        Task<Employee> GetEmployeeAsync(string name);
+
+        Task AddUserAsyn(Employee employee);
+        Task PasifDeleteEmployeeAsyn(Employee employee);
     }
 }

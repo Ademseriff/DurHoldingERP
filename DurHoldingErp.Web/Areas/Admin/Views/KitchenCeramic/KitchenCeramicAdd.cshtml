@@ -1,0 +1,75 @@
+﻿@model KitchenCeramic;
+
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    button {
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        background-color: #007BFF;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+    }
+
+    .custom-margin {
+        text-align: center
+    }
+
+    button:hover {
+        background-color: #0056b3;
+    }
+
+    .alert-container {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 20px;
+        background-color: #f8d7da;
+        border: 1px solid #f5c6cb;
+        border-radius: 5px;
+        color: #721c24;
+    }
+
+        .alert-container.show {
+            display: block;
+        }
+</style>
+
+
+<div class="container mt-4">
+    <h1 class="custom-margin">Kitchen Ceramic Model Add</h1>
+
+    <form asp-action="CeramicAdd" asp-controller="KitchenCeramic" asp-area="Admin" method="post" target="_self">
+        <div class="form-group container mt-4">
+            <label asp-for="CeramicName">Closet Model Name </label>
+            <input asp-for="CeramicName" class="form-control" placeholder="Kitchen Ceramic Model Name">
+        </div>
+        <div class="form-group container mt-4">
+            <label asp-for="CeramicPrice">Closet Model Price => please $</label>
+            <input asp-for="CeramicPrice" class="form-control" placeholder="Kitchen Ceramic Model Price">
+        </div>
+        <div class="form-group container mt-4">
+            <label asp-for="CeramicAmount">Closet Amount Right Now</label>
+            <input asp-for="CeramicAmount" class="form-control" placeholder="Lütfen mevcut bulunan adedi giriniz">
+        </div>
+
+        <div class="form-group container mt-4">
+            <br />
+            <button type="submit" class="btn btn-primary container mt-4 custom-margin">Modeli  Ekle</button>
+        </div>
+    </form>
+
+    <!-- Eğer gerekirse showAlert() fonksiyonu için JavaScript kodunuzu buraya ekleyebilirsiniz -->
+</div>

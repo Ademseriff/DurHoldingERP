@@ -1,0 +1,56 @@
+﻿@{
+    List<BathCeramic> bath = ViewBag.bath;
+}
+
+
+<style>
+    .custom-margin {
+        text-align: center
+    }
+</style>
+
+<div class="container mt-4">
+    <h2 class="container custom-margin"> Bath Ceramic </h2>
+    <br />
+    <br />
+    <table class="table table-dark">
+        <thead>
+            <tr>
+
+                <th scope="auto">Barkod</th>
+                <th></th>
+
+                <th scope="auto">Bath Ceramic Name</th>
+
+
+                <th></th>
+
+                <th scope="auto">Bath Ceramic Price $</th>
+                <th></th>
+                <th scope="auto">Bath Ceramic Amount</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var x in bath)
+            {
+                @if (x.IsDeleted==false)
+                {
+                    <tr>
+                        <td>@x.BarcodeId
+                        <td>
+                        <td>@x.CeramicName
+                        <td>
+                        <td>@x.CeramicPrice
+                        <td>
+                        <td>@x.CeramicAmount</td>
+
+
+                    </tr>
+                }
+               
+            }
+
+        </tbody>
+    </table>
+</div>

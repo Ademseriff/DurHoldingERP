@@ -1,0 +1,66 @@
+﻿@{
+    List<Invoice> ınvoice = ViewBag.ınvoice;
+}
+
+<style>
+    .custom-margin {
+        text-align: center
+    }
+</style>
+
+<div class="container mt-4">
+    <h2 class="container custom-margin"> Invoice </h2>
+    <br />
+    <br />
+    <table class="table table-dark">
+        <thead>
+            <tr>
+
+                <th scope="auto">Fatura Numarası</th>
+                <th></th>
+
+                <th scope="auto">Satıcı</th>
+
+
+                <th></th>
+
+                <th scope="auto">Alıcı</th>
+                <th></th>
+                <th scope="auto">Ürün</th>
+                <th scope="auto">Ürün Barcode</th>
+
+                <th scope="auto">Ödenen Ücret</th>
+                <th scope="auto">Satın Alınan adet</th>
+               
+                <th scope="auto"> Faturanın Yaratılma Tarihi</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var x in ınvoice)
+            {
+                @if (x.IsDeleted == false)
+                {
+                    <tr>
+                        <td>@x.InvoiceNumber
+                        <td>
+                        <td>@x.SellerInformation
+                        <td>
+                        <td>@x.ReceiverInformations
+                        <td>
+                        <td>@x.Product</td>
+                        <td>@x.BarcodeId</td>
+                        <td>@x.Amount $</td>
+                        <td>@x.Piece </td>
+                        
+
+                        <td>@x.CreateTime</td>
+
+
+                    </tr>
+                }
+               
+            }
+
+        </tbody>
+    </table>
+</div>
